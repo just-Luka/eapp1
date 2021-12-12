@@ -1,4 +1,6 @@
 import 'package:eapp1/config/app_config.dart';
+import 'package:eapp1/presentation/pages/welcome/intro_1.dart';
+import 'package:eapp1/presentation/pages/wrapper_page.dart';
 import 'package:eapp1/presentation/styles/themes/dark_theme.dart';
 import 'package:eapp1/presentation/styles/themes/i_theme.dart';
 import 'package:eapp1/presentation/styles/themes/light_theme.dart';
@@ -27,12 +29,7 @@ class Application extends StatelessWidget {
       localeResolutionCallback: (locales, supportedLocales) => Locale(appConfig.locale),
       // localizationsDelegates: AppLocalizations.localizationsDelegates,
       // supportedLocales: AppLocalizations.supportedLocales,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('E-commerce App'),
-        ),
-        body: Home(),
-      ),
+      home: WrapperPage(),
     );
   }
 
