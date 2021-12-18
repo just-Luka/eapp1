@@ -10,8 +10,8 @@ class AppConfig {
 
   /// Here you can add language support for app
   final List<Locale> locales = [
-    Locale('en', ''),
     Locale('ka', ''),
-    // Locale('ru', ''),
+    Locale('en', ''),
+    Locale('ru', ''),
   ];
 }

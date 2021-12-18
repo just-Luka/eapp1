@@ -12,12 +12,16 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
-      controller: controller,
-      children: const [
-        Intro1(),
-        Intro2(),
-        Intro3(),
+    return Stack(
+      children: [
+        PageView(
+          controller: controller,
+          children: [
+            Intro1(),
+            Intro2(),
+            Intro3(),
+          ],
+        ),
       ],
     );
   }

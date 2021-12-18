@@ -1,35 +1,44 @@
 import 'package:eapp1/config/app_config.dart';
-import 'package:eapp1/presentation/pages/welcome/intro_1.dart';
+import 'package:eapp1/domain/mixin/basic_kit.dart';
+import 'package:eapp1/presentation/cubit/language_cubit.dart';
 import 'package:eapp1/presentation/pages/wrapper_page.dart';
 import 'package:eapp1/presentation/styles/themes/dark_theme.dart';
 import 'package:eapp1/presentation/styles/themes/i_theme.dart';
 import 'package:eapp1/presentation/styles/themes/light_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Application extends StatelessWidget {
+class Application extends StatelessWidget with BasicKit{
   AppConfig appConfig = AppConfig();
 
   Application({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: theme(isLightMode() ? LightTheme() : DarkTheme()),
-      localizationsDelegates: const[
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LanguageCubit>(
+          create: (BuildContext context) => LanguageCubit(),
+        ),
       ],
-      supportedLocales: appConfig.locales,
-      localeResolutionCallback: (locales, supportedLocales) => Locale(appConfig.locale),
-      // localizationsDelegates: AppLocalizations.localizationsDelegates,
-      // supportedLocales: AppLocalizations.supportedLocales,
-      home: WrapperPage(),
+      child: MaterialApp(
+        title: 'Meet Tbilisi',
+        theme: theme(isLightMode() ? LightTheme() : DarkTheme()),
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: const[
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: appConfig.locales,
+        localeResolutionCallback: (locales, supportedLocales) => Locale(getSafeConfig(null, appConfig.locale)),
+        // localizationsDelegates: AppLocalizations.localizationsDelegates,
+        // supportedLocales: AppLocalizations.supportedLocales,
+        home: WrapperPage(),
+      ),
     );
   }
 

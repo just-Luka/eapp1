@@ -2,5 +2,8 @@
   "helloWorld": "Hello World!",
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
-  }
+  },
+  "introWelcome": "Welcome",
+  "introSubText1": "Please choose your language before continue"
+
 }

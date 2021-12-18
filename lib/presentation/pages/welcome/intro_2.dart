@@ -5,8 +5,13 @@ class Intro2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("second intro"),
+    return Center(
+      child: Image.asset(
+        'assets/images/intro2.png',
+        fit: BoxFit.cover,
+        height: double.infinity,
+        width: double.infinity,
+      ),
     );
   }
 }
