@@ -7,6 +7,12 @@ class LanguageInitial extends LanguageState {}
 
 class LanguageChecking extends LanguageState {}
 
-class LanguageLoading extends LanguageState {}
+class LanguageUpdated extends LanguageState {
+  String currentLang;
+
+  LanguageUpdated({
+    required this.currentLang,
+  });
+}
 
 class LanguageErrorOccurred extends LanguageState {}

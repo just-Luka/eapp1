@@ -1,7 +1,15 @@
+import 'dart:async';
+
 import 'package:eapp1/config/app_config.dart';
+import 'package:eapp1/data/api/locale/preferences/config_preference.dart';
+import 'package:eapp1/data/api/locale/translates/welcome_translate.dart';
+import 'package:eapp1/domain/cubit/language_cubit.dart';
+import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
+import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
+import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Intro1 extends StatefulWidget {
@@ -13,7 +21,9 @@ class Intro1 extends StatefulWidget {
 }
 
 class _Intro1State extends State<Intro1> {
-  int current = 1;
+  int current = 0;
+  Timer? run;
+
   final AppConfig appConfig = AppConfig();
   late PageController pageController = PageController(
     initialPage: current,
@@ -24,55 +34,84 @@ class _Intro1State extends State<Intro1> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-
     return Stack(
       children: [
-        Image.asset(
-          'assets/images/intro1.png',
-          fit: BoxFit.cover,
-          height: double.infinity,
-          width: double.infinity,
-        ),
-        Center(
-          child: Container(
-            width: width * 0.85,
-            height: 700,
-            // color: Colors.red,
+        const FullScreenPortraitImageFrame(image: 'assets/images/Optimized-intro1.png'),
+        IntroCenterBlock(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 90),
-                Text(
-                  AppLocalizations.of(context)!.introWelcome,
-                  style: GoogleFonts.archivo(
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(56, 182, 255, 1),
+                WelcomeCubitWidget(
+                  checkingChild: const SizedBox(),
+                  updatedChild: (lang) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 90),
+                      Text(
+                        WelcomeTranslate(locale: lang).value()['title1'] ?? '',
+                        style: GoogleFonts.archivo(
+                          fontSize: 38,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromRGBO(56, 182, 255, 1),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 3),
+                        child: Text(
+                          WelcomeTranslate(locale: lang).value()['introSubText1'] ?? '',
+                          style: GoogleFonts.archivo(
+                              fontSize: 23,
+                              color: Colors.white,
+                              height: 1.5
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 130),
+                    ],
+                  ),
+                  defaultChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 90),
+                      Text(
+                        WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['title1'] ?? '',
+                        style: GoogleFonts.archivo(
+                          fontSize: 38,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromRGBO(56, 182, 255, 1),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 3),
+                        child: Text(
+                          WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['introSubText1'] ?? '',
+                          style: GoogleFonts.archivo(
+                              fontSize: 23,
+                              color: Colors.white,
+                              height: 1.5
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 130),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.only(left: 3),
-                  child: Text(
-                    AppLocalizations.of(context)!.introSubText1,
-                    style: GoogleFonts.archivo(
-                      fontSize: 23,
-                      // fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      height: 1.5
-                    ),
-                  ),
-                ),
-                SizedBox(height: 130),
-                Container(
+                SizedBox(
                   width: width * 0.85,
                   height: 60,
-                  // color: Colors.red,
                   child: PageView.builder(
                     controller: pageController,
                     scrollDirection: Axis.horizontal,
                     itemCount: appConfig.locales.length,
-                    onPageChanged: (int page) => updateLocale(page),
+                    onPageChanged: (int page) => {
+                      run?.cancel(),
+                      run = Timer(const Duration(seconds: 1), () => BlocProvider.of<LanguageCubit>(context).setLanguage(appConfig.locales[page].languageCode)),
+                      setState(() {
+                        current = page;
+                      })
+                    },
                     itemBuilder: (context, index){
                       return Center(
                         child: Text(
@@ -80,14 +119,14 @@ class _Intro1State extends State<Intro1> {
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
-                            color: current == index ? Color.fromRGBO(56, 182, 255, 1) : Colors.white,
+                            color: current == index ? const Color.fromRGBO(56, 182, 255, 1) : Colors.white,
                           ),
                         ),
                       );
                     },
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 25,
                   thickness: 10,
                   color: Colors.white,
@@ -96,7 +135,6 @@ class _Intro1State extends State<Intro1> {
                 ),
               ],
             ),
-          ),
         ),
       ]
     );
