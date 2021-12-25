@@ -11,8 +11,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Application extends StatelessWidget with BasicKit{
-  AppConfig appConfig = AppConfig();
-
   Application({Key? key}) : super(key: key);
 
   @override
@@ -33,8 +31,8 @@ class Application extends StatelessWidget with BasicKit{
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: appConfig.locales,
-        localeResolutionCallback: (locales, supportedLocales) => Locale(getSafeConfig(null, appConfig.locale)),
+        supportedLocales: AppConfig.locales,
+        localeResolutionCallback: (locales, supportedLocales) => Locale(getSafeConfig(null, AppConfig.locale)),
         // localizationsDelegates: AppLocalizations.localizationsDelegates,
         // supportedLocales: AppLocalizations.supportedLocales,
         home: WrapperPage(),
@@ -52,7 +50,7 @@ class Application extends StatelessWidget with BasicKit{
 
   bool isLightMode() {
     // if (USER SET THEME BY HIMSELF) return USER'S THEME COLOR
-    return appConfig.lightMode;
+    return AppConfig.lightMode;
   }
 }
 

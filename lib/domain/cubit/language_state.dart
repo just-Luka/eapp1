@@ -8,7 +8,7 @@ class LanguageInitial extends LanguageState {}
 class LanguageChecking extends LanguageState {}
 
 class LanguageUpdated extends LanguageState {
-  String currentLang;
+  final String currentLang;
 
   LanguageUpdated({
     required this.currentLang,

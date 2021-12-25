@@ -3,15 +3,16 @@ import 'package:flutter/cupertino.dart';
 class AppConfig {
 
   /// Switch darkMode/lightMode
-  final bool lightMode = true;
+  static const bool lightMode = true;
 
   /// Default language
-  final String locale = 'en';
+  static const String locale = 'ka';
 
   /// Here you can add language support for app
-  final List<Locale> locales = [
+  static const List<Locale> locales = [
     Locale('ka', ''),
     Locale('en', ''),
     Locale('ru', ''),
+    // Locale('fr', ''),
   ];
 }

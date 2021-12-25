@@ -1,9 +1,8 @@
-import 'package:eapp1/data/api/locale/preferences/config_preference.dart';
-import 'package:eapp1/data/api/locale/translates/welcome_translate.dart';
+import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
+import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
 import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,7 +52,7 @@ class Intro2 extends StatelessWidget {
                   children: [
                     const SizedBox(height: 90),
                     Text(
-                      WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['title2'] ?? '',
+                      WelcomeTranslate(locale: AppRepository().getLocale()).value()['title2'] ?? '',
                       style: GoogleFonts.archivo(
                         fontSize: 38,
                         fontWeight: FontWeight.bold,
@@ -67,7 +66,7 @@ class Intro2 extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 3),
                       child: Text(
-                        WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['introSubText2'] ?? '',
+                        WelcomeTranslate(locale: AppRepository().getLocale()).value()['introSubText2'] ?? '',
                         style: GoogleFonts.archivo(
                             fontSize: 23,
                             color: const Color.fromRGBO(217, 217, 217, 1),

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:eapp1/config/app_config.dart';
-import 'package:eapp1/data/api/locale/preferences/config_preference.dart';
-import 'package:eapp1/data/api/locale/translates/welcome_translate.dart';
+import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
+import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/cubit/language_cubit.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
@@ -14,7 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Intro1 extends StatefulWidget {
 
-  Intro1({Key? key}) : super(key: key);
+  const Intro1({Key? key}) : super(key: key);
 
   @override
   State<Intro1> createState() => _Intro1State();
@@ -24,12 +24,10 @@ class _Intro1State extends State<Intro1> {
   int current = 0;
   Timer? run;
 
-  final AppConfig appConfig = AppConfig();
   late PageController pageController = PageController(
     initialPage: current,
     viewportFraction: 0.4,
   );
-
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +73,7 @@ class _Intro1State extends State<Intro1> {
                     children: [
                       const SizedBox(height: 90),
                       Text(
-                        WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['title1'] ?? '',
+                        WelcomeTranslate(locale: AppRepository().getLocale()).value()['title1'] ?? '',
                         style: GoogleFonts.archivo(
                           fontSize: 38,
                           fontWeight: FontWeight.bold,
@@ -86,7 +84,7 @@ class _Intro1State extends State<Intro1> {
                       Padding(
                         padding: const EdgeInsets.only(left: 3),
                         child: Text(
-                          WelcomeTranslate(locale: ConfigPreference().getLocale()).value()['introSubText1'] ?? '',
+                          WelcomeTranslate(locale: AppRepository().getLocale()).value()['introSubText1'] ?? '',
                           style: GoogleFonts.archivo(
                               fontSize: 23,
                               color: Colors.white,
@@ -104,10 +102,10 @@ class _Intro1State extends State<Intro1> {
                   child: PageView.builder(
                     controller: pageController,
                     scrollDirection: Axis.horizontal,
-                    itemCount: appConfig.locales.length,
+                    itemCount: AppConfig.locales.length,
                     onPageChanged: (int page) => {
                       run?.cancel(),
-                      run = Timer(const Duration(seconds: 1), () => BlocProvider.of<LanguageCubit>(context).setLanguage(appConfig.locales[page].languageCode)),
+                      run = Timer(const Duration(seconds: 1), () => BlocProvider.of<LanguageCubit>(context).setLanguage(AppConfig.locales[page].languageCode)),
                       setState(() {
                         current = page;
                       })
@@ -115,7 +113,7 @@ class _Intro1State extends State<Intro1> {
                     itemBuilder: (context, index){
                       return Center(
                         child: Text(
-                          appConfig.locales[index].languageCode.toUpperCase(),
+                          AppConfig.locales[index].languageCode.toUpperCase(),
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -138,10 +136,5 @@ class _Intro1State extends State<Intro1> {
         ),
       ]
     );
-  }
-  void updateLocale(int page) {
-    setState(() {
-      current = page;
-    });
   }
 }

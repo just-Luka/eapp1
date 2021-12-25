@@ -1,4 +1,4 @@
-import 'package:eapp1/data/api/locale/translates/welcome_translate.dart';
+import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
 import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
