@@ -10,7 +10,7 @@ class WrapperPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isFirstBootstrap ? WelcomePage() : HomePage(),
+      body: isFirstBootstrap ? const WelcomePage() : const HomePage(),
     );
   }
 

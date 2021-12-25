@@ -3,5 +3,5 @@ import 'package:flutter/cupertino.dart';
 
 class LightTheme implements ITheme{
   @override
-  Color appbarColor = Color.fromRGBO(229, 229, 229, 0.8);
+  Color appbarColor = const Color.fromRGBO(229, 229, 229, 0.8);
 }

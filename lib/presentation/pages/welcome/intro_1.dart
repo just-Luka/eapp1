@@ -40,7 +40,6 @@ class _Intro1State extends State<Intro1> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 WelcomeCubitWidget(
-                  checkingChild: const SizedBox(),
                   updatedChild: (lang) => Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

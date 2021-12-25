@@ -17,7 +17,6 @@ class Intro3 extends StatelessWidget {
           child: Column(
             children: [
               WelcomeCubitWidget(
-                checkingChild: const SizedBox(),
                 updatedChild: (lang) => Column(
                   children: [
                     const SizedBox(height: 90),

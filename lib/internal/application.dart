@@ -1,12 +1,11 @@
 import 'package:eapp1/config/app_config.dart';
-import 'package:eapp1/domain/cubit/language_cubit.dart';
+import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/mixin/basic_kit.dart';
 import 'package:eapp1/presentation/pages/wrapper_page.dart';
 import 'package:eapp1/presentation/styles/themes/dark_theme.dart';
 import 'package:eapp1/presentation/styles/themes/i_theme.dart';
 import 'package:eapp1/presentation/styles/themes/light_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -15,13 +14,7 @@ class Application extends StatelessWidget with BasicKit{
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<LanguageCubit>(
-          create: (BuildContext context) => LanguageCubit(),
-        ),
-      ],
-      child: MaterialApp(
+    return MaterialApp(
         title: 'Welcome to Tbilisi',
         theme: theme(isLightMode() ? LightTheme() : DarkTheme()),
         debugShowCheckedModeBanner: false,
@@ -32,11 +25,10 @@ class Application extends StatelessWidget with BasicKit{
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: AppConfig.locales,
-        localeResolutionCallback: (locales, supportedLocales) => Locale(getSafeConfig(null, AppConfig.locale)),
+        localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
         // localizationsDelegates: AppLocalizations.localizationsDelegates,
         // supportedLocales: AppLocalizations.supportedLocales,
-        home: WrapperPage(),
-      ),
+        home: const WrapperPage(),
     );
   }
 

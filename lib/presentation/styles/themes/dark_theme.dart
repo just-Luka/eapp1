@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 
 class DarkTheme implements ITheme {
   @override
-  Color appbarColor = Color.fromRGBO(66, 66, 66, 0.8);
+  Color appbarColor = const Color.fromRGBO(66, 66, 66, 0.8);
 }

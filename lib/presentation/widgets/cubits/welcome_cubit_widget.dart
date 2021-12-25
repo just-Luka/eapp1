@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomeCubitWidget extends StatelessWidget {
-  final Widget checkingChild;
   final Function(String) updatedChild;
   final Widget defaultChild;
 
   const WelcomeCubitWidget({
-    required this.checkingChild,
     required this.updatedChild,
     required this.defaultChild,
     Key? key
