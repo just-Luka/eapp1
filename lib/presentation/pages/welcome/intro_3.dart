@@ -1,9 +1,12 @@
+import 'package:eapp1/data/datasource/local/preferences/app_preference.dart';
 import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
+import 'package:eapp1/presentation/widgets/buttons/responsive_button_1.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
 import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class Intro3 extends StatelessWidget {
   const Intro3({Key? key}) : super(key: key);
@@ -44,6 +47,16 @@ class Intro3 extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
+                    InkWell(
+                      onTap: () async => {
+                        await AppPreference().setFirstBootstrap(),
+                        Navigator.pushReplacementNamed(
+                            context,
+                            '/'
+                        )
+                      },
+                      child: ResponsiveButton1(locale: lang),
+                    ),
                   ],
                 ),
                 defaultChild: Column(
@@ -73,6 +86,16 @@ class Intro3 extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
+                    InkWell(
+                      onTap: () async => {
+                        await AppPreference().setFirstBootstrap(),
+                        Navigator.pushReplacementNamed(
+                            context,
+                            '/'
+                        )
+                      },
+                      child: const ResponsiveButton1(locale: 'ka'),
+                    ),
                   ],
                 ),
               ),
@@ -81,6 +104,5 @@ class Intro3 extends StatelessWidget {
         ),
       ],
     );
-
   }
 }

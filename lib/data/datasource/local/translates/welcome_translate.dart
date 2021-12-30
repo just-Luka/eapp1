@@ -27,6 +27,8 @@ class WelcomeTranslate with BasicKit{
           'introSubText1': 'Please choose your language before continue',
           'title2': 'Lorem Ipsum Dolor',
           'introSubText2': 'Georgia is one of the\nbeautiful\nand ancient country in the world',
+          'skip': 'Skip',
+          'next': 'Next',
         };
       case 'ka':
         return {
@@ -34,6 +36,9 @@ class WelcomeTranslate with BasicKit{
           'introSubText1': 'აირჩიეთ თქვენთვის სასურველი ენა',
           'title2': 'ლორემ იპსუმ დოლორ',
           'introSubText2': 'KA_Georgia is one of the\nbeautiful\nand ancient country in the world',
+          'skip': 'გამოტოვება',
+          'next': 'გაგრძელება',
+
         };
       case 'ru':
         return {
@@ -41,6 +46,8 @@ class WelcomeTranslate with BasicKit{
           'introSubText1': 'Выберите предпочитаемый язык',
           'title2': 'RU_Lorem Ipsum Dolor',
           'introSubText2': 'RU_Georgia is one of the\nbeautiful\nand ancient country in the world',
+          'skip': 'Прорустить',
+          'next': 'Прод.',
         };
       default:
         return {'error': 'Translation is not available for this language!'};

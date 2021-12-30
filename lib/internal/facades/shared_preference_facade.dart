@@ -11,11 +11,19 @@ class SharedPreferenceFacade {
     _preferences.clear();
   }
 
-  static Future<void> setString(keyword, String value) async{
-    await _preferences.setString(keyword, value);
+  static Future<void> setString(key, String value) async{
+    await _preferences.setString(key, value);
   }
 
-  static String? getString(keyword) {
-    return _preferences.getString(keyword);
+  static String? getString(key) {
+    return _preferences.getString(key);
+  }
+
+  static Future<void> setBool(key, bool value) async{
+    await _preferences.setBool(key, value);
+  }
+
+  static bool? getBool(key) {
+    return _preferences.getBool(key);
   }
 }

@@ -1,15 +1,16 @@
 import 'package:eapp1/config/app_config.dart';
 import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/mixin/basic_kit.dart';
-import 'package:eapp1/presentation/pages/wrapper_page.dart';
+import 'package:eapp1/internal/route.dart' as internal;
 import 'package:eapp1/presentation/styles/themes/dark_theme.dart';
 import 'package:eapp1/presentation/styles/themes/i_theme.dart';
 import 'package:eapp1/presentation/styles/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-class Application extends StatelessWidget with BasicKit{
+class Application extends StatelessWidget with BasicKit {
   Application({Key? key}) : super(key: key);
 
   @override
@@ -26,13 +27,13 @@ class Application extends StatelessWidget with BasicKit{
         ],
         supportedLocales: AppConfig.locales,
         localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
-        // localizationsDelegates: AppLocalizations.localizationsDelegates,
-        // supportedLocales: AppLocalizations.supportedLocales,
-        home: const WrapperPage(),
+
+        initialRoute: '/',
+        routes: internal.Route.show(context),
     );
   }
 
-  ThemeData theme(ITheme theme){
+  ThemeData theme(ITheme theme) {
     return ThemeData(
       appBarTheme: AppBarTheme(
         backgroundColor: theme.appbarColor,

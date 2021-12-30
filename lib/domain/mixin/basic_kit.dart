@@ -4,7 +4,7 @@ import 'package:eapp1/config/app_config.dart';
 /// in different classes
 mixin BasicKit {
   bool isLocaleExist(String locale) {
-    final locales = AppConfig.locales;
+    const locales = AppConfig.locales;
 
     for(int i=0; i<locales.length; i++) {
       if (locales[i].languageCode == locale.toLowerCase()) {

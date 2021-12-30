@@ -10,5 +10,9 @@ class AppRepository with BasicKit{
     return userLocale ?? appLocale;
   }
 
+  bool getIsFirstBootstrap() {
+    return AppPreference().getIsFirstBootstrap() ?? true;
+  }
+
   // bool getTheme(bool isLightMode);
 }

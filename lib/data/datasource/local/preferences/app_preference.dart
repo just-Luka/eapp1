@@ -9,4 +9,13 @@ class AppPreference {
   String? getLocale() {
     return SharedPreferenceFacade.getString(keyword.locale.toString());
   }
+
+  Future<void> setFirstBootstrap() async{
+    await SharedPreferenceFacade.setBool(keyword.isFirstBootstrap.toString(), false);
+  }
+
+  bool? getIsFirstBootstrap() {
+    return SharedPreferenceFacade.getBool(keyword.isFirstBootstrap.toString());
+  }
+
 }
