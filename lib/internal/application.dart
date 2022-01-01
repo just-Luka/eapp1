@@ -26,8 +26,8 @@ class Application extends StatelessWidget with BasicKit {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: AppConfig.locales,
-        localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
-
+        // localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
+        locale: Locale(AppRepository().getLocale()),
         initialRoute: '/',
         routes: internal.Route.show(context),
     );
