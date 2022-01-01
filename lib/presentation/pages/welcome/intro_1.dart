@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:eapp1/config/app_config.dart';
 import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
 import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/cubit/language_cubit.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
-import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
+import 'package:eapp1/presentation/widgets/frames/intro_center_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +36,7 @@ class _Intro1State extends State<Intro1> {
     return Stack(
       children: [
         const FullScreenPortraitImageFrame(image: 'assets/images/Optimized-intro1.png'),
-        IntroCenterBlock(
+        IntroCenterFrame(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

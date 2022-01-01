@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class IntroCenterBlock extends StatelessWidget {
+class IntroCenterFrame extends StatelessWidget {
   final Widget child;
 
-  const IntroCenterBlock({
+  const IntroCenterFrame({
     required this.child,
     Key? key
   }) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
 import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
-import 'package:eapp1/presentation/widgets/welcome/intro_center_block.dart';
+import 'package:eapp1/presentation/widgets/frames/intro_center_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,7 +14,7 @@ class Intro2 extends StatelessWidget {
     return Stack(
       children : [
         const FullScreenPortraitImageFrame(image: 'assets/images/Optimized-intro2.png'),
-        IntroCenterBlock(
+        IntroCenterFrame(
           child: Column(
             children: [
               WelcomeCubitWidget(
