@@ -1,6 +1,6 @@
 import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
 import 'package:eapp1/domain/preferences/set_app_preference.dart';
-import 'package:eapp1/presentation/widgets/buttons/responsive_button_1.dart';
+import 'package:eapp1/presentation/widgets/buttons/get_started_button.dart';
 import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
 import 'package:eapp1/presentation/widgets/frames/intro_center_frame.dart';
@@ -54,7 +54,7 @@ class Intro3 extends StatelessWidget {
                             '/'
                         )
                       },
-                      child: ResponsiveButton1(locale: lang),
+                      child: GetStartedButton(locale: lang),
                     ),
                   ],
                 ),
@@ -93,7 +93,7 @@ class Intro3 extends StatelessWidget {
                             '/'
                         )
                       },
-                      child: const ResponsiveButton1(locale: 'ka'),
+                      child: const GetStartedButton(locale: 'ka'),
                     ),
                   ],
                 ),

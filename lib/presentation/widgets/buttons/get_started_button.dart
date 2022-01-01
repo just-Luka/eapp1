@@ -2,10 +2,10 @@ import 'package:eapp1/data/datasource/local/translates/welcome_translate.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ResponsiveButton1 extends StatelessWidget {
+class GetStartedButton extends StatelessWidget {
   final String locale;
 
-  const ResponsiveButton1({
+  const GetStartedButton({
     Key? key,
     required this.locale,
   }) : super(key: key);

@@ -5,6 +5,6 @@ import 'package:flutter/material.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferenceFacade.init();
-  SharedPreferenceFacade.clear();
+  // SharedPreferenceFacade.clear();
   runApp(Application());
 }
