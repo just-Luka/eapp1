@@ -16,20 +16,20 @@ class Application extends StatelessWidget with BasicKit {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Welcome to Tbilisi',
-        theme: theme(isLightMode() ? LightTheme() : DarkTheme()),
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: const[
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: AppConfig.locales,
-        // localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
-        locale: Locale(AppRepository().getLocale()),
-        initialRoute: '/',
-        routes: internal.Route.show(context),
+      title: 'Welcome to Tbilisi',
+      theme: theme(isLightMode() ? LightTheme() : DarkTheme()),
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const[
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppConfig.locales,
+      // localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
+      locale: Locale(AppRepository().getLocale()),
+      initialRoute: '/',
+      routes: internal.Route.show(context),
     );
   }
 

@@ -1,4 +1,5 @@
-enum keyword {
+/// All 'shared_preferences' keywords
+enum SPKeyword{
   // App keywords
   locale,
   theme,

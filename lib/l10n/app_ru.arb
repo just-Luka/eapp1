@@ -1,5 +1,7 @@
 {
   "helloWorld": "Привет Мир",
   "introWelcome": "Здравствуйте",
-  "introSubText1": "Выберите язык"
+  "introSubText1": "Выберите язык",
+  "homePageTitle1": "Найти",
+  "homePageTitle2": "Лучший отель"
 }

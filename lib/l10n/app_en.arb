@@ -4,6 +4,7 @@
     "description": "The conventional newborn programmer greeting"
   },
   "introWelcome": "Welcome",
-  "introSubText1": "Please choose your language before continue"
-
+  "introSubText1": "Please choose your language before continue",
+  "homePageTitle1": "Let's find your",
+  "homePageTitle2": "Favorite Hotel"
 }
