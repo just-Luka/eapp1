@@ -3,5 +3,6 @@
   "introWelcome": "მოგესალმებით",
   "introSubText1": "აირჩიეთ თქვენთვის სასურველი ენა",
   "homePageTitle1": "აღმოაჩინე",
-  "homePageTitle2": "საუკეთესო სასტუმრო"
+  "homePageTitle2": "საუკეთესო სასტუმრო",
+  "searchInputPlaceholder": "მოძებნე სასტუმრო"
 }

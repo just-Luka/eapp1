@@ -6,5 +6,6 @@
   "introWelcome": "Welcome",
   "introSubText1": "Please choose your language before continue",
   "homePageTitle1": "Let's find your",
-  "homePageTitle2": "Favorite Hotel"
+  "homePageTitle2": "Favorite Hotel",
+  "searchInputPlaceholder": "Search For A Hotel"
 }

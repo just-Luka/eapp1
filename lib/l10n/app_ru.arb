@@ -3,5 +3,7 @@
   "introWelcome": "Здравствуйте",
   "introSubText1": "Выберите язык",
   "homePageTitle1": "Найти",
-  "homePageTitle2": "Лучший отель"
+  "homePageTitle2": "Лучший отель",
+  "searchInputPlaceholder": "Найти отель"
+
 }

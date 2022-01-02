@@ -1,4 +1,3 @@
-import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:flutter/foundation.dart';
 
 class AppProvider with ChangeNotifier{

@@ -8,7 +8,6 @@ import 'package:eapp1/presentation/styles/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 
 class Application extends StatelessWidget with BasicKit {
   Application({Key? key}) : super(key: key);
@@ -38,6 +37,7 @@ class Application extends StatelessWidget with BasicKit {
       appBarTheme: AppBarTheme(
         backgroundColor: theme.appbarColor,
       ),
+    scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1.0),
     );
   }
 
