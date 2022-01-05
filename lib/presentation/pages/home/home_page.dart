@@ -1,16 +1,20 @@
+import 'dart:ui';
+
 import 'package:eapp1/presentation/widgets/appbars/default_appbar.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
+import 'package:eapp1/presentation/widgets/frames/listview_center_frame.dart';
 import 'package:eapp1/presentation/widgets/home_chip.dart';
 import 'package:eapp1/presentation/widgets/search_box.dart';
+import 'package:eapp1/presentation/widgets/sliders/category_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return CustomScrollView(
       slivers: <Widget>[
         const DefaultAppbar(),
@@ -21,6 +25,9 @@ class HomePage extends StatelessWidget {
         ),
         const SliverToBoxAdapter(
           child: HomeChip()
+        ),
+        const SliverToBoxAdapter(
+          child: CategorySlider(),
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(

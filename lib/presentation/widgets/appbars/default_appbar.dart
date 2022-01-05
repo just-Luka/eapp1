@@ -51,9 +51,9 @@ class DefaultAppbar extends StatelessWidget {
                 ),
               ],
             ),
-            child: const CircleAvatar(
+            child: CircleAvatar(
               radius: 26,
-              backgroundImage: NetworkImage('https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg'),
+              child: Image.network('https://cdn-icons-png.flaticon.com/512/149/149071.png'),
             ),
           ),
         ),

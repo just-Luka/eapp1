@@ -1,3 +1,4 @@
+import 'package:eapp1/presentation/widgets/frames/listview_center_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +13,8 @@ class HomeChip extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 5,
         itemBuilder: (context, index) {
-          return space(
+          return ListViewCenterFrame(
+            itemDistance: 13,
             child: Chip(
               label: const Padding(
                 padding: EdgeInsets.all(7.0),
@@ -29,13 +31,6 @@ class HomeChip extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-
-  Widget space({index, child}) {
-    return Padding(
-      padding: index == 0 ? const EdgeInsets.only(left: 26) : const EdgeInsets.only(left: 13),
-      child: child,
     );
   }
 }
