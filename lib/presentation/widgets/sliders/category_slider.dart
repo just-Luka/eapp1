@@ -16,6 +16,7 @@ class CategorySlider extends StatelessWidget {
     return SizedBox(
       height: 260,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 5,
         itemBuilder: (context, index) {

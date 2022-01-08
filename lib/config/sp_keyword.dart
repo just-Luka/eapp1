@@ -4,5 +4,8 @@ enum SPKeyword{
   locale,
   theme,
   isFirstBootstrap,
+
+  // Firestore keywords
+  category,
   // other ...
 }

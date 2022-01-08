@@ -26,4 +26,12 @@ class SharedPreferenceFacade {
   static bool? getBool(key) {
     return _preferences.getBool(key);
   }
+
+  static Future<void> setStringList(key, List<String> value) async{
+    await _preferences.setStringList(key, value);
+  }
+
+  static List<String>? getStringList(key) {
+    return _preferences.getStringList(key);
+  }
 }

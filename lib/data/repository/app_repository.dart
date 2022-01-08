@@ -13,6 +13,4 @@ class AppRepository with BasicKit{
   bool getIsFirstBootstrap() {
     return GetAppPreference().getIsFirstBootstrap() ?? true;
   }
-
-  // bool getTheme(bool isLightMode);
 }
