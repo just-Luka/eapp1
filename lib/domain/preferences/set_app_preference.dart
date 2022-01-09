@@ -9,4 +9,9 @@ class SetAppPreference {
   Future<void> setFirstBootstrap() async{
     await SharedPreferenceFacade.setBool(SPKeyword.isFirstBootstrap.toString(), false);
   }
+
+  Future<void> setFirstSetup(bool value) async{
+    await SharedPreferenceFacade.setBool(SPKeyword.isFirstSetup.toString(), value);
+  }
+
 }

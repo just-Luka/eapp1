@@ -1,30 +1,47 @@
 import 'dart:convert';
 
+import 'package:eapp1/config/sp_keyword.dart';
 import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference.dart';
+import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 import 'package:eapp1/data/datasource/remote/firestore/category_firestore.dart';
-import 'package:eapp1/data/models/category_model.dart';
+import 'package:eapp1/data/models/firestore/category_model.dart';
+import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/mixin/basic_kit.dart';
+import 'package:eapp1/domain/preferences/set_app_preference.dart';
 import 'package:eapp1/domain/preferences/set_firestore_preference.dart';
 
 class CategoryRepository with BasicKit {
-  List<CategoryModel> data = [];
+  BaseFirestore myFirestore = CategoryFirestore();
 
-  Future<List<CategoryModel>> safeCategoryList() async {
+  Future<List<CategoryModel>> byDefault() async{
     if(await isDeviceOnline()) {
-      List<CategoryModel> cloudData = await cloudCategoryList();
-      // TODO refactoring, OOP
-      SetFirestorePreference().setCategory(cloudData);
-      return cloudData;
+      if(AppRepository().getIsFirstSetup() /* || Refresh*/) {
+        List<CategoryModel> dataCloud = await cloud();
+        await SetFirestorePreference<CategoryModel>().setModel(dataCloud, SPKeyword.category);
+        await SetAppPreference().setFirstSetup(false);
+
+        return dataCloud;
+      }
+
+      return cache();
     }else{
-      return cacheCategoryList();
+      List<CategoryModel> dataCache = cache();
+
+      if(dataCache.isNotEmpty) {
+        return dataCache;
+      }
+      return [];
     }
   }
 
-  Future<List<CategoryModel>> cloudCategoryList() async{
-    var cloudData = await CategoryFirestore().dataList();
+  Future<List<CategoryModel>> cloud() async{
+    final List<CategoryModel> data = [];
+
+    // TODO try {} catch()
+    var cloudData = await myFirestore.docCollection();
 
     cloudData.forEach((e) {
-      CategoryModel model = CategoryModel(id: e.get('id'), name: e.get('name'), sort: e.get('sort'));
+      CategoryModel model = CategoryModel.encapsulate(id: e.get('id'), name: e.get('name'), sort: e.get('sort'));
       data.add(model);
     });
 
@@ -32,17 +49,20 @@ class CategoryRepository with BasicKit {
     return data;
   }
 
-  List<CategoryModel> cacheCategoryList() {
-    List<String> cacheData = GetFirestorePreference().getCategory() ?? [];
-    print(cacheData);
-    if(cacheData.isEmpty) {
+  List<CategoryModel> cache() {
+    final List<CategoryModel> data = [];
+
+    List<String>? cacheData = GetFirestorePreference().getCategory();
+
+    if(cacheData == null) {
       return [];
     }
 
     for (var e in cacheData) {
-      data.add(CategoryModel.fromMap(jsonDecode(e)));
+      data.add(CategoryModel().fromMap(jsonDecode(e)));
     }
 
     return data;
   }
+
 }

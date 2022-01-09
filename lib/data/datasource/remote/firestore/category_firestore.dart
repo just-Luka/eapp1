@@ -1,11 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 
-class CategoryFirestore {
-  CollectionReference category = FirebaseFirestore.instance.collection('categories');
-
-  Future dataList() async{
-      var categoryDocs = await category.get();
-
-      return categoryDocs.docs;
-  }
+class CategoryFirestore extends BaseFirestore {
+  CategoryFirestore() : super(
+    reference: 'categories'
+  );
 }

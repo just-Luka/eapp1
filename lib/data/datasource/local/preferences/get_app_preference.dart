@@ -10,4 +10,8 @@ class GetAppPreference {
     return SharedPreferenceFacade.getBool(SPKeyword.isFirstBootstrap.toString());
   }
 
+  bool? getIsFirstSetup() {
+    return SharedPreferenceFacade.getBool(SPKeyword.isFirstSetup.toString());
+  }
+
 }

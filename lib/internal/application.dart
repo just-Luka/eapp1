@@ -37,7 +37,7 @@ class Application extends StatelessWidget with BasicKit {
       appBarTheme: AppBarTheme(
         backgroundColor: theme.appbarColor,
       ),
-    scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1.0),
+      scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1.0),
     );
   }
 
@@ -46,15 +46,3 @@ class Application extends StatelessWidget with BasicKit {
     return AppConfig.lightMode;
   }
 }
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(AppLocalizations.of(context)!.helloWorld),
-    );
-  }
-}
-

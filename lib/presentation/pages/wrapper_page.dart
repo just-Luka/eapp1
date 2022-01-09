@@ -4,8 +4,6 @@ import 'package:eapp1/presentation/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 class WrapperPage extends StatelessWidget {
-  final bool isFirstBootstrap = true;
-
   const WrapperPage({Key? key}) : super(key: key);
 
   @override
