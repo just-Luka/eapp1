@@ -4,10 +4,12 @@ import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference
 import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 import 'package:eapp1/data/datasource/remote/firestore/hotel_firestore.dart';
 import 'package:eapp1/data/models/firestore/hotel_model.dart';
+import 'package:eapp1/data/repository/firestore/list/i_firestore_list_repository.dart';
 
-class HotelRepository {
+class HotelRepository implements IFirestoreListRepository<HotelModel>{
   BaseFirestore myFirestore = HotelFirestore();
 
+  @override
   Future<List<HotelModel>> cloud() async{
     final List<HotelModel> data = [];
 
@@ -21,6 +23,7 @@ class HotelRepository {
     return data;
   }
 
+  @override
   List<HotelModel> cache() {
     final List<HotelModel> data = [];
 

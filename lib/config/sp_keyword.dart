@@ -3,10 +3,8 @@ enum SPKeyword{
   // App keywords
   locale,
   theme,
-  /// Used app was downloaded first time or cache was cleaned
-  isFirstBootstrap,
-  /// Used when app was completely suspended and re-opened
-  isFirstSetup,
+  isFirstBootstrap,  /// Used app was downloaded first time or cache was cleaned
+  isFirstSetup,   /// Used when app was completely suspended and re-opened
 
   // Firestore keywords
   category,

@@ -1,39 +1,16 @@
 import 'dart:convert';
 
-import 'package:eapp1/config/sp_keyword.dart';
 import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference.dart';
 import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 import 'package:eapp1/data/datasource/remote/firestore/category_firestore.dart';
 import 'package:eapp1/data/models/firestore/category_model.dart';
-import 'package:eapp1/data/repository/app_repository.dart';
+import 'package:eapp1/data/repository/firestore/list/i_firestore_list_repository.dart';
 import 'package:eapp1/domain/mixin/basic_kit.dart';
-import 'package:eapp1/domain/preferences/set_app_preference.dart';
-import 'package:eapp1/domain/preferences/set_firestore_preference.dart';
 
-class CategoryRepository with BasicKit {
+class CategoryRepository with BasicKit implements IFirestoreListRepository<CategoryModel>{
   BaseFirestore myFirestore = CategoryFirestore();
 
-  Future<List<CategoryModel>> byDefault() async{
-    if(await isDeviceOnline()) {
-      if(AppRepository().getIsFirstSetup() /* || Refresh*/) {
-        List<CategoryModel> dataCloud = await cloud();
-        await SetFirestorePreference<CategoryModel>().setModel(dataCloud, SPKeyword.category);
-        await SetAppPreference().setFirstSetup(false);
-
-        return dataCloud;
-      }
-
-      return cache();
-    }else{
-      List<CategoryModel> dataCache = cache();
-
-      if(dataCache.isNotEmpty) {
-        return dataCache;
-      }
-      return [];
-    }
-  }
-
+  @override
   Future<List<CategoryModel>> cloud() async{
     final List<CategoryModel> data = [];
 
@@ -49,6 +26,7 @@ class CategoryRepository with BasicKit {
     return data;
   }
 
+  @override
   List<CategoryModel> cache() {
     final List<CategoryModel> data = [];
 
