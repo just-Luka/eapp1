@@ -1,18 +1,15 @@
 import 'dart:convert';
 
 import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference.dart';
-import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 import 'package:eapp1/data/datasource/remote/firestore/hotel_firestore.dart';
 import 'package:eapp1/data/models/firestore/hotel_model.dart';
-import 'package:eapp1/data/repository/firestore/list/i_firestore_list_repository.dart';
+import 'package:eapp1/data/repository/firestore/list/base_firestore_list_repository.dart';
 
-class HotelRepository implements IFirestoreListRepository<HotelModel>{
-  BaseFirestore myFirestore = HotelFirestore();
+class HotelRepository extends BaseFirestoreListRepository<HotelModel>{
+  HotelRepository() : super(myFirestore: HotelFirestore());
 
   @override
   Future<List<HotelModel>> cloud() async{
-    final List<HotelModel> data = [];
-
     var cloudData = await myFirestore.docCollection();
 
     cloudData.forEach((e) {
@@ -25,8 +22,6 @@ class HotelRepository implements IFirestoreListRepository<HotelModel>{
 
   @override
   List<HotelModel> cache() {
-    final List<HotelModel> data = [];
-
     List<String>? cacheData = GetFirestorePreference().getHotel();
 
     if(cacheData == null) {

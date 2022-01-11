@@ -1,20 +1,15 @@
 import 'dart:convert';
 
 import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference.dart';
-import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 import 'package:eapp1/data/datasource/remote/firestore/category_firestore.dart';
 import 'package:eapp1/data/models/firestore/category_model.dart';
-import 'package:eapp1/data/repository/firestore/list/i_firestore_list_repository.dart';
-import 'package:eapp1/domain/mixin/basic_kit.dart';
+import 'package:eapp1/data/repository/firestore/list/base_firestore_list_repository.dart';
 
-class CategoryRepository with BasicKit implements IFirestoreListRepository<CategoryModel>{
-  BaseFirestore myFirestore = CategoryFirestore();
+class CategoryRepository extends BaseFirestoreListRepository<CategoryModel>{
+  CategoryRepository() : super(myFirestore: CategoryFirestore());
 
   @override
   Future<List<CategoryModel>> cloud() async{
-    final List<CategoryModel> data = [];
-
-    // TODO try {} catch()
     var cloudData = await myFirestore.docCollection();
 
     cloudData.forEach((e) {
@@ -28,8 +23,6 @@ class CategoryRepository with BasicKit implements IFirestoreListRepository<Categ
 
   @override
   List<CategoryModel> cache() {
-    final List<CategoryModel> data = [];
-
     List<String>? cacheData = GetFirestorePreference().getCategory();
 
     if(cacheData == null) {
@@ -42,5 +35,6 @@ class CategoryRepository with BasicKit implements IFirestoreListRepository<Categ
 
     return data;
   }
+
 
 }
