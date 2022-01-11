@@ -13,6 +13,7 @@ class FirestoreRepository<T extends IModelJsonConvert> with BasicKit {
     required this.keyword
   });
 
+  // TODO remove it from here
   Future<List<T>> firestoreList(BaseFirestoreListRepository<T> firestoreListRepository) async{
     if(await isDeviceOnline()) {
       if(AppRepository().getIsFirstSetup() /* || Refresh*/) {
