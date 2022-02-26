@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await dependencyInit();
-  bootstrapMethods();
+  await bootstrapMethods();
 
   // SharedPreferenceFacade.clear();
   runApp(Application());
@@ -19,6 +19,5 @@ Future<void> dependencyInit() async {
 }
 
 Future<void> bootstrapMethods() async {
-
-  SetAppPreference().setFirstSetup(true);
+  await SetAppPreference().setFirstSetup(true);
 }

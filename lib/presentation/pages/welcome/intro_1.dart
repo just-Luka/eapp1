@@ -135,28 +135,28 @@ class _Intro1State extends State<Intro1> {
               ],
             ),
         ),
-        Positioned(
-          left: width*0.6,
-          top: height*0.904,
-          child: const Text(
-            'Skip',
-            style: TextStyle(
-              color: Color.fromRGBO(56, 182, 255, 1),
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2,
-            ),
-          ),
-        ),
-        Positioned(
-          left: width*0.73,
-          top: height*0.89,
-          child: const Icon(
-            Icons.arrow_right_alt,
-            size: 50,
-            color: Color.fromRGBO(56, 182, 255, 1),
-          ),
-        )
+        // Positioned(
+        //   left: width*0.6,
+        //   top: height*0.904,
+        //   child: const Text(
+        //     'Skip',
+        //     style: TextStyle(
+        //       color: Color.fromRGBO(56, 182, 255, 1),
+        //       fontSize: 20,
+        //       fontWeight: FontWeight.bold,
+        //       letterSpacing: 2,
+        //     ),
+        //   ),
+        // ),
+        // Positioned(
+        //   left: width*0.73,
+        //   top: height*0.89,
+        //   child: const Icon(
+        //     Icons.arrow_right_alt,
+        //     size: 50,
+        //     color: Color.fromRGBO(56, 182, 255, 1),
+        //   ),
+        // )
       ]
     );
   }

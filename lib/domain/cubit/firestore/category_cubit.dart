@@ -12,6 +12,7 @@ class CategoryCubit extends Cubit<CategoryState> {
 
   Future<void> fetchCategory() async {
     emit(CategoryLoading());
+
     List<CategoryModel> data = await FirestoreRepository<CategoryModel>(keyword: SPKeyword.category).firestoreList(CategoryRepository());
 
     data.isNotEmpty ? emit(CategoryLoaded(model: data)) : emit(CategoryError());
