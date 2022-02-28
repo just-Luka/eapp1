@@ -50,7 +50,7 @@ class HomeChip extends StatelessWidget {
                     itemDistance: 13,
                     child: Chip(
                       label: Padding(
-                        padding: EdgeInsets.all(7.0),
+                        padding: const EdgeInsets.all(7.0),
                         child: Text(state.model[index].name),
                       ),
                       labelStyle: GoogleFonts.poppins(
@@ -65,7 +65,7 @@ class HomeChip extends StatelessWidget {
                 },
               );
             }else{
-              return SizedBox();
+              return const SizedBox();
             }
           },
         ),
