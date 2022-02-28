@@ -13,8 +13,4 @@ class AppRepository with BasicKit{
   bool getIsFirstBootstrap() {
     return GetAppPreference().getIsFirstBootstrap() ?? true;
   }
-
-  bool getIsFirstSetup() {
-    return GetAppPreference().getIsFirstSetup() ?? false;
-  }
 }

@@ -19,5 +19,5 @@ Future<void> dependencyInit() async {
 }
 
 Future<void> bootstrapMethods() async {
-  await SetAppPreference().setFirstSetup(true);
+  // await SetAppPreference().setFirstSetup(true);
 }

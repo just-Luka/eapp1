@@ -28,7 +28,7 @@ class Application extends StatelessWidget with BasicKit {
       // localeResolutionCallback: (locales, supportedLocales) => Locale(AppRepository().getLocale()),
       locale: Locale(AppRepository().getLocale()),
       initialRoute: '/',
-      routes: internal.Route.show(context),
+      routes: internal.Route.call(context),
     );
   }
 

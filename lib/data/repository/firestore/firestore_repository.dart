@@ -17,14 +17,13 @@ class FirestoreRepository<T extends IModelJsonConvert> with BasicKit {
   Future<List<T>> firestoreList(BaseFirestoreListRepository<T> firestoreListRepository) async{
 
     if(await isDeviceOnline()) {
-      if(AppRepository().getIsFirstSetup() /* || Refresh*/) {
-        List<T> dataCloud = await firestoreListRepository.cloud();
 
-        await SetFirestorePreference<T>().setModel(dataCloud, keyword);
-        await SetAppPreference().setFirstSetup(false);
+      // if (//refresh)
+      List<T> dataCloud = await firestoreListRepository.cloud();
 
-        return dataCloud;
-      }
+      await SetFirestorePreference<T>().setModel(dataCloud, keyword);
+
+      return dataCloud;
 
       return firestoreListRepository.cache();
     }else{
