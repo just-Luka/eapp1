@@ -7,7 +7,6 @@ import 'package:eapp1/presentation/widgets/cubits/welcome_cubit_widget.dart';
 import 'package:eapp1/presentation/widgets/frames/full_screen_portrait_image_frame.dart';
 import 'package:eapp1/presentation/widgets/frames/intro_center_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 

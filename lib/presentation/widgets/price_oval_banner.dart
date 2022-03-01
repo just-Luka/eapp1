@@ -1,6 +1,5 @@
 import 'package:eapp1/presentation/widgets/texts/price_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PriceOvalBanner extends StatelessWidget {
   const PriceOvalBanner({Key? key}) : super(key: key);

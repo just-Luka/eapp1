@@ -7,7 +7,6 @@ import 'package:eapp1/presentation/widgets/icons/star_icon.dart';
 import 'package:eapp1/presentation/widgets/price_oval_banner.dart';
 import 'package:eapp1/presentation/widgets/texts/hotel_title_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CategorySlider extends StatelessWidget {
   const CategorySlider({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class CategorySlider extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     color: Colors.indigo,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: NetworkImage("https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
                         fit: BoxFit.cover
                     ),
@@ -55,12 +54,12 @@ class CategorySlider extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 10, top: 8),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const HotelTitleText(textColor: Colors.white),
-                              const SizedBox(height: 5),
-                              const LocationIcon(color: Colors.white),
-                              const SizedBox(height: 5),
-                              const StarIcon(textColor: Colors.white),
+                            children: const [
+                               HotelTitleText(textColor: Colors.white),
+                               SizedBox(height: 5),
+                               LocationIcon(color: Colors.white),
+                               SizedBox(height: 5),
+                               StarIcon(textColor: Colors.white),
                             ],
                           ),
                         ),

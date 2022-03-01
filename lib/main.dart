@@ -1,4 +1,3 @@
-import 'package:eapp1/domain/preferences/set_app_preference.dart';
 import 'package:eapp1/internal/application.dart';
 import 'package:eapp1/internal/facades/shared_preference_facade.dart';
 import 'package:firebase_core/firebase_core.dart';
