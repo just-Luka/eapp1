@@ -5,6 +5,7 @@ import 'package:eapp1/presentation/widgets/icons/bookmark_icon.dart';
 import 'package:eapp1/presentation/widgets/icons/location_icon.dart';
 import 'package:eapp1/presentation/widgets/icons/star_icon.dart';
 import 'package:eapp1/presentation/widgets/price_oval_banner.dart';
+import 'package:eapp1/presentation/widgets/texts/hotel_title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,17 +56,11 @@ class CategorySlider extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Rooms Hotel',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Colors.white
-                                ),
-                              ),
+                              const HotelTitleText(textColor: Colors.white),
                               const SizedBox(height: 5),
-                              const LocationIcon(),
+                              const LocationIcon(color: Colors.white),
                               const SizedBox(height: 5),
-                              const StarIcon(),
+                              const StarIcon(textColor: Colors.white),
                             ],
                           ),
                         ),

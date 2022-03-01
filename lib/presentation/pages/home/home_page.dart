@@ -1,14 +1,12 @@
 import 'dart:ui';
 
-import 'package:eapp1/data/datasource/remote/firestore/category_firestore.dart';
-
 import 'package:eapp1/presentation/widgets/appbars/default_appbar.dart';
-import 'package:eapp1/presentation/widgets/category_title.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/home_chip.dart';
 import 'package:eapp1/presentation/widgets/search_box.dart';
 import 'package:eapp1/presentation/widgets/sliders/category_slider.dart';
 import 'package:eapp1/presentation/widgets/sliders/hotel_double_slider.dart';
+import 'package:eapp1/presentation/widgets/texts/headline_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -38,7 +36,7 @@ class HomePage extends StatelessWidget {
           ),
           const SliverToBoxAdapter(
             child: HomeCenterFrame(
-                child: CategoryTitle(),
+                child: HeadlineText(),
             ),
           ),
           const SliverToBoxAdapter(

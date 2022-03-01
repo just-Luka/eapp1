@@ -1,3 +1,4 @@
+import 'package:eapp1/presentation/widgets/texts/price_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,26 +14,11 @@ class PriceOvalBanner extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.orange
       ),
-      child: Center(
-        child: RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: "\$50.00",
-                style: GoogleFonts.poppins(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextSpan(
-                text: "/per night",
-                style: GoogleFonts.poppins(
-                    fontSize: 10
-                ),
-              ),
-            ],
-          ),
-        ),
+      child: const Center(
+        child: PriceText(
+          textColor: Colors.white,
+          priceColor: Colors.white,
+        )
       ),
     );
   }
