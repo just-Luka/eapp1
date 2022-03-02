@@ -43,6 +43,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-Thin.ttf
 
+    - family: CustomIcons
+      fonts:
+        - asset: assets/icons/Home.ttf
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

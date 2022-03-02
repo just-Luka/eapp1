@@ -9,9 +9,7 @@ class HomeChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CategoryCubit()..fetchCategory(),
-      child: SizedBox(
+    return SizedBox(
         height: 90,
         child: BlocBuilder<CategoryCubit, CategoryState>(
           builder: (context, state) {
@@ -69,7 +67,6 @@ class HomeChip extends StatelessWidget {
             }
           },
         ),
-      ),
     );
   }
 }
