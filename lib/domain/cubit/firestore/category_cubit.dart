@@ -10,10 +10,10 @@ part 'category_state.dart';
 class CategoryCubit extends Cubit<CategoryState> {
   CategoryCubit() : super(CategoryInitial());
 
-  Future<void> fetchCategory() async {
+  Future<void> fetchCategory(bool isReloaded) async {
     emit(CategoryLoading());
 
-    List<CategoryModel> data = await FirestoreRepository<CategoryModel>(keyword: SPKeyword.category).firestoreList(CategoryRepository());
+    List<CategoryModel> data = await FirestoreRepository<CategoryModel>(keyword: SPKeyword.category).firestoreList(CategoryRepository(), isReloaded);
 
     data.isNotEmpty ? emit(CategoryLoaded(model: data)) : emit(CategoryError());
   }

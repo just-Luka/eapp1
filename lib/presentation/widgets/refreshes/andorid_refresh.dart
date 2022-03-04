@@ -6,7 +6,7 @@ class AndroidRefresh extends StatelessWidget {
   final Widget child;
 
   Future<void> categoryTrigger(context) async {
-    BlocProvider.of<CategoryCubit>(context).fetchCategory;
+    await BlocProvider.of<CategoryCubit>(context).fetchCategory(true);
   }
 
   const AndroidRefresh({

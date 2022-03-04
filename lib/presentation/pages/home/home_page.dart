@@ -13,11 +13,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  /// TODO refresh not working
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CategoryCubit()..fetchCategory(),
+      create: (context) => CategoryCubit()..fetchCategory(false),
       child: AndroidRefresh(
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),

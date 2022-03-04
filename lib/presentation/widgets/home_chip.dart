@@ -17,7 +17,7 @@ class HomeChip extends StatelessWidget {
               return ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemCount: 4,
+                itemCount: 1,
                 itemBuilder: (context, index) {
                   return ListViewCenterFrame(
                     itemDistance: 13,

@@ -12,24 +12,25 @@ class FirestoreRepository<T extends IModelJsonConvert> with BasicKit {
   });
 
   // TODO remove it from here
-  Future<List<T>> firestoreList(BaseFirestoreListRepository<T> firestoreListRepository) async{
+  Future<List<T>> firestoreList(BaseFirestoreListRepository<T> firestoreListRepository, bool isReloaded, {bool reChecked = false}) async{
 
-    if(await isDeviceOnline()) {
-
-      // if (//refresh)
+    if(await isDeviceOnline() && isReloaded) {
       List<T> dataCloud = await firestoreListRepository.cloud();
 
       await SetFirestorePreference<T>().setModel(dataCloud, keyword);
 
       return dataCloud;
-
-      return firestoreListRepository.cache();
     }else{
       List<T> dataCache = firestoreListRepository.cache();
 
       if(dataCache.isNotEmpty) {
         return dataCache;
       }
+
+      if(!reChecked) {
+        return firestoreList(firestoreListRepository, true, reChecked: true);
+      }
+
       return [];
     }
   }
