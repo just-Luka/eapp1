@@ -4,6 +4,7 @@
   "introSubText1": "Выберите язык",
   "homePageTitle1": "Найти",
   "homePageTitle2": "Лучший отель",
-  "searchInputPlaceholder": "Найти отель"
-
+  "searchInputPlaceholder": "Найти отель",
+  "savePageTitle1": "Сохраненные",
+  "savePageTitle2": "Гостиницы"
 }

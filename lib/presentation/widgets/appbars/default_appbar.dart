@@ -3,7 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DefaultAppbar extends StatelessWidget {
-  const DefaultAppbar({Key? key}) : super(key: key);
+  final String? title;
+  final String? metaTitle;
+
+  const DefaultAppbar({
+    Key? key,
+    this.title,
+    this.metaTitle
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +29,14 @@ class DefaultAppbar extends StatelessWidget {
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: AppLocalizations.of(context)!.homePageTitle1 + '\n',
+                  text: title,
                   style: GoogleFonts.poppins(
                     fontSize: 20,
                     color: Colors.grey,
                   ),
                 ),
                 TextSpan(
-                  text: AppLocalizations.of(context)!.homePageTitle2,
+                  text: metaTitle,
                   style: responsiveStyle(context),
                 ),
               ]),

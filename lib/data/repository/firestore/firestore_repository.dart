@@ -16,7 +16,6 @@ class FirestoreRepository<T extends IModelJsonConvert> with BasicKit {
 
     if(await isDeviceOnline() && isReloaded) {
       List<T> dataCloud = await firestoreListRepository.cloud();
-
       await SetFirestorePreference<T>().setModel(dataCloud, keyword);
 
       return dataCloud;

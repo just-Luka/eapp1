@@ -9,4 +9,8 @@ class GetFirestorePreference {
   List<String>? getHotel() {
     return SharedPreferenceFacade.getStringList(SPKeyword.hotel.toString());
   }
+
+  List<String>? getSlider() {
+    return SharedPreferenceFacade.getStringList(SPKeyword.slider.toString());
+  }
 }

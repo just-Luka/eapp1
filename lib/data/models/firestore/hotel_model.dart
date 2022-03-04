@@ -1,7 +1,7 @@
 import 'package:eapp1/data/models/firestore/i_model_json_convert.dart';
 
 class HotelModel implements IModelJsonConvert {
-  late int id;
+  late String id;
   late String location;
   late String name;
   late String per;
@@ -31,7 +31,7 @@ class HotelModel implements IModelJsonConvert {
   @override
   HotelModel fromMap(Map<String, dynamic> map) {
     return HotelModel.encapsulate(
-      id: map['id'] as int,
+      id: map['id'] as String,
       location: map['location'] as String,
       name: map['name'] as String,
       per: map['per'] as String,

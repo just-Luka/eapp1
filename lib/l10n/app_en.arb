@@ -7,5 +7,7 @@
   "introSubText1": "Please choose your language before continue",
   "homePageTitle1": "Let's find your",
   "homePageTitle2": "Favorite Hotel",
-  "searchInputPlaceholder": "Search For A Hotel"
+  "searchInputPlaceholder": "Search For A Hotel",
+  "savePageTitle1": "Hotels",
+  "savePageTitle2": "Saved List"
 }

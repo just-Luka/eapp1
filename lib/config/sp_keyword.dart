@@ -8,5 +8,6 @@ enum SPKeyword{
   // Firestore keywords
   category,
   hotel,
+  slider,
 
 }
