@@ -14,7 +14,7 @@ class DefaultAppbar extends StatelessWidget {
       expandedHeight: 100,
       floating: true,
       title: Padding(
-        padding: EdgeInsets.only(left: width*0.04),
+        padding: EdgeInsets.only(left: width * 0.04),
         child: RichText(
           text: TextSpan(
               style: const TextStyle(
@@ -32,13 +32,12 @@ class DefaultAppbar extends StatelessWidget {
                   text: AppLocalizations.of(context)!.homePageTitle2,
                   style: responsiveStyle(context),
                 ),
-              ]
-          ),
+              ]),
         ),
       ),
       actions: [
         Padding(
-          padding: EdgeInsets.only(right: width*0.04),
+          padding: EdgeInsets.only(right: width * 0.04),
           child: Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -47,13 +46,13 @@ class DefaultAppbar extends StatelessWidget {
                 BoxShadow(
                     blurRadius: 10,
                     color: Colors.black.withOpacity(0.3),
-                    offset: const Offset(0.0, 7)
-                ),
+                    offset: const Offset(0.0, 7)),
               ],
             ),
             child: CircleAvatar(
               radius: 26,
-              child: Image.network('https://cdn-icons-png.flaticon.com/512/149/149071.png'),
+              child: Image.network(
+                  'https://cdn-icons-png.flaticon.com/512/149/149071.png'),
             ),
           ),
         ),
@@ -65,7 +64,7 @@ class DefaultAppbar extends StatelessWidget {
   TextStyle responsiveStyle(BuildContext context) {
     String locale = AppLocalizations.of(context)!.localeName;
 
-    switch (locale){
+    switch (locale) {
       case 'ka':
         return GoogleFonts.poppins(
           fontSize: 19,
