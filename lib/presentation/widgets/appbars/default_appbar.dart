@@ -6,11 +6,7 @@ class DefaultAppbar extends StatelessWidget {
   final String? title;
   final String? metaTitle;
 
-  const DefaultAppbar({
-    Key? key,
-    this.title,
-    this.metaTitle
-  }) : super(key: key);
+  const DefaultAppbar({Key? key, this.title, this.metaTitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

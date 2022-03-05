@@ -14,7 +14,9 @@ class SliderCubit extends Cubit<SliderState> {
   Future<void> fetchSlider(bool isReloaded) async {
     emit(SliderLoading());
 
-    List<SliderModel> data = await FirestoreRepository<SliderModel>(keyword: SPKeyword.slider).firestoreList(SliderRepository(), isReloaded);
+    List<SliderModel> data =
+        await FirestoreRepository<SliderModel>(keyword: SPKeyword.slider)
+            .firestoreList(SliderRepository(), isReloaded);
 
     data.isNotEmpty ? emit(SliderLoaded(model: data)) : emit(SliderError());
   }
