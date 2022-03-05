@@ -15,7 +15,7 @@ class WrapperPage extends StatefulWidget {
 class _WrapperPageState extends State<WrapperPage> {
   int _currentIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static const List<Widget> _pages = <Widget>[
     HomePage(),
     LocationPage(),
     SavePage(),
@@ -34,15 +34,17 @@ class _WrapperPageState extends State<WrapperPage> {
     //   body: AppRepository().getIsFirstBootstrap() ? WelcomePage() : const HomePage(),
     // );
     return Scaffold(
-      body: _widgetOptions.elementAt(_currentIndex),
+      body: IndexedStack(
+        children: _pages,
+        index: _currentIndex,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              CustomIcons.home_svgrepo_com,
-            ),
-            label: 'Home'
-          ),
+              icon: Icon(
+                CustomIcons.home_svgrepo_com,
+              ),
+              label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on_outlined),
             label: 'Map',
