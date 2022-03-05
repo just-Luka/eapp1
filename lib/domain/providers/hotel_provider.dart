@@ -18,7 +18,7 @@ class HotelProvider with ChangeNotifier {
     }
 
     int prevSize = hotels.length;
-    hotels.removeWhere((e) => identical(e, hotel));
+    hotels.removeWhere((e) => e.id == hotel.id);
     int newSize = hotels.length;
 
     if (prevSize == newSize) {
