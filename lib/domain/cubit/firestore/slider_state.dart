@@ -8,7 +8,7 @@ class SliderInitial extends SliderState {}
 class SliderLoading extends SliderState {}
 
 class SliderLoaded extends SliderState {
-  final List<SliderModel> model;
+  final List<HotelModel> model;
 
   SliderLoaded({
     required this.model

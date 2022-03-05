@@ -3,10 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class StarIcon extends StatelessWidget {
   final Color textColor;
+  final String star;
 
   const StarIcon({
     Key? key,
     required this.textColor,
+    required this.star
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class StarIcon extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: "4.5",
+            text: star,
             style: GoogleFonts.poppins(
               fontSize: 11,
               color: textColor,

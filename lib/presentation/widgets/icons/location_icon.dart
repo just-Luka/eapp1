@@ -3,10 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LocationIcon extends StatelessWidget {
   final Color color;
+  final String text;
 
   const LocationIcon({
     Key? key,
-    required this.color
+    required this.color,
+    required this.text
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class LocationIcon extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: "Tbilisi, Georgia",
+            text: text,
             style: GoogleFonts.poppins(
               color: color,
               fontSize: 11,

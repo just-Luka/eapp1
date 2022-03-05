@@ -2,7 +2,14 @@ import 'package:eapp1/presentation/widgets/texts/price_text.dart';
 import 'package:flutter/material.dart';
 
 class PriceOvalBanner extends StatelessWidget {
-  const PriceOvalBanner({Key? key}) : super(key: key);
+  final String price;
+  final String per;
+
+  const PriceOvalBanner({
+    Key? key,
+    required this.price,
+    required this.per
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +20,12 @@ class PriceOvalBanner extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.orange
       ),
-      child: const Center(
+      child: Center(
         child: PriceText(
           textColor: Colors.white,
           priceColor: Colors.white,
+          per: per,
+          price: price,
         )
       ),
     );

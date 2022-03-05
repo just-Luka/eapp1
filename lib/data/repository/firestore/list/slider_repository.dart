@@ -13,7 +13,8 @@ class SliderRepository extends BaseFirestoreListRepository<SliderModel> {
     var cloudData = await myFirestore.docCollection();
 
     cloudData.forEach((e) {
-      SliderModel model = SliderModel.encapsulate(id: e.get("id"), hotelId: e.get("hotel_id"), sort: e.get("sort_id"));
+      SliderModel model = SliderModel.encapsulate(id: e.get("id"), hotelId: e.get("hotel_id"), sort: e.get("sort"));
+
       data.add(model);
     });
 

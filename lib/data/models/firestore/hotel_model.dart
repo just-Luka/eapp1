@@ -6,6 +6,7 @@ class HotelModel implements IModelJsonConvert {
   late String name;
   late String per;
   late String star;
+  late String price;
 
   HotelModel();
 
@@ -15,6 +16,7 @@ class HotelModel implements IModelJsonConvert {
     required this.name,
     required this.per,
     required this.star,
+    required this.price,
   });
 
   @override
@@ -25,6 +27,7 @@ class HotelModel implements IModelJsonConvert {
       'name': name,
       'per': per,
       'star': star,
+      'price': price,
     };
   }
 
@@ -36,6 +39,7 @@ class HotelModel implements IModelJsonConvert {
       name: map['name'] as String,
       per: map['per'] as String,
       star: map['star'] as String,
+      price: map['price'] as String,
     );
   }
 }

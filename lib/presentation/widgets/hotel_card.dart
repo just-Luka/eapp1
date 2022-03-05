@@ -45,15 +45,26 @@ class HotelCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  HotelTitleText(textColor: Colors.black),
+                  HotelTitleText(
+                    text: "Rooms Hotel",
+                    textColor: Colors.black,
+                  ),
                   SizedBox(height: 4),
-                  LocationIcon(color: Colors.black),
+                  LocationIcon(
+                    text: "Tbilisi, Georgia",
+                    color: Colors.black,
+                  ),
                   SizedBox(height: 4),
-                  StarIcon(textColor: Colors.black),
+                  StarIcon(
+                    star: "5.0",
+                    textColor: Colors.black,
+                  ),
                   SizedBox(height: 4),
                   PriceText(
                     priceColor: Colors.orange,
                     textColor: Colors.black,
+                    per: "month",
+                    price: "100.00",
                   )
                 ],
               ),

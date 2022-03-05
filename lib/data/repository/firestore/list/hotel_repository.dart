@@ -13,7 +13,7 @@ class HotelRepository extends BaseFirestoreListRepository<HotelModel>{
     var cloudData = await myFirestore.docCollection();
 
     cloudData.forEach((e) {
-      HotelModel model = HotelModel.encapsulate(id: e.get('id'), name: e.get('name'), per: e.get('per'), location: e.get('location'), star: e.get('star'));
+      HotelModel model = HotelModel.encapsulate(id: e.get('id'), name: e.get('name'), per: e.get('per'), location: e.get('location'), star: e.get('star'), price: e.get('price'));
       data.add(model);
     });
 

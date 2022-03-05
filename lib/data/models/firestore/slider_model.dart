@@ -1,6 +1,6 @@
 import 'package:eapp1/data/models/firestore/i_model_json_convert.dart';
 
-class SliderModel extends IModelJsonConvert {
+class SliderModel implements IModelJsonConvert {
   late String id;
   late String hotelId;
   late int sort;

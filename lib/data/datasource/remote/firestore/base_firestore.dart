@@ -16,4 +16,10 @@ abstract class BaseFirestore {
 
     return data.docs;
   }
+
+  Future docCollectionById(String id) async {
+    var data = await initCollection().doc(id).get();
+
+    return data.data();
+  }
 }
