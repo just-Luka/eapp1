@@ -23,7 +23,7 @@ class CategorySlider extends StatelessWidget {
             return const Center(
               child: Text("Waiting..."),
             );
-          }else if(state is SliderLoaded) {
+          } else if (state is SliderLoaded) {
             return ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -40,27 +40,29 @@ class CategorySlider extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18),
                           color: Colors.indigo,
                           image: const DecorationImage(
-                              image: NetworkImage("https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
-                              fit: BoxFit.cover
-                          ),
+                              image: NetworkImage(
+                                  "https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
+                              fit: BoxFit.cover),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 190, top: 10),
-                        child: BookmarkIcon(),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 190, top: 10),
+                        child: BookmarkIcon(hotel: state.model[index]),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 25, top: 150),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                            filter:
+                                ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                             child: Container(
                               width: 200.0,
                               height: 88.0,
                               color: Colors.black.withOpacity(0.1),
                               child: Padding(
-                                padding: const EdgeInsets.only(left: 10, top: 8),
+                                padding:
+                                    const EdgeInsets.only(left: 10, top: 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -90,15 +92,14 @@ class CategorySlider extends StatelessWidget {
                           child: PriceOvalBanner(
                             price: state.model[index].price,
                             per: state.model[index].per,
-                          )
-                      ),
+                          )),
                     ],
                   ),
                   index: index,
                 );
               },
             );
-          }else {
+          } else {
             return SizedBox();
           }
         },

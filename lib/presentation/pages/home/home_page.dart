@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<CategoryCubit>(
-            create: (context) => CategoryCubit()..fetchCategory(false),
+          create: (context) => CategoryCubit()..fetchCategory(false),
         ),
         BlocProvider<SliderCubit>(
           create: (context) => SliderCubit()..fetchSlider(false),
@@ -39,9 +39,7 @@ class HomePage extends StatelessWidget {
                 child: SearchBox(),
               ),
             ),
-            const SliverToBoxAdapter(
-                child: HomeChip()
-            ),
+            const SliverToBoxAdapter(child: HomeChip()),
             const SliverToBoxAdapter(
               child: CategorySlider(),
             ),
@@ -55,13 +53,13 @@ class HomePage extends StatelessWidget {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return Container(
-                        width: double.infinity,
-                        height: 100,
-                        color: const Color.fromRGBO(245, 245, 245, 1.0),
-                      );
-                      },
+                (BuildContext context, int index) {
+                  return Container(
+                    width: double.infinity,
+                    height: 100,
+                    color: const Color.fromRGBO(245, 245, 245, 1.0),
+                  );
+                },
                 childCount: 20,
               ),
             ),
