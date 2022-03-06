@@ -16,6 +16,7 @@ class DefaultAppbar extends StatelessWidget {
       toolbarHeight: 100,
       expandedHeight: 100,
       floating: true,
+      centerTitle: false,
       title: Padding(
         padding: EdgeInsets.only(left: width * 0.04),
         child: RichText(
