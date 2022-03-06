@@ -39,7 +39,9 @@ class HomePage extends StatelessWidget {
                 child: SearchBox(),
               ),
             ),
-            const SliverToBoxAdapter(child: HomeChip()),
+            const SliverToBoxAdapter(
+                child: HomeChip(),
+            ),
             const SliverToBoxAdapter(
               child: CategorySlider(),
             ),
