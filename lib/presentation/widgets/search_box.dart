@@ -16,7 +16,7 @@ class SearchBox extends StatelessWidget {
               prefixIcon: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 9.0),
                 child: InkWell(
-                  onTap: () => {print('vbh')},
+                  onTap: () => {print('clicked')},
                   child: const Icon(
                     Icons.search,
                     size: 36,
@@ -26,24 +26,19 @@ class SearchBox extends StatelessWidget {
               ),
               border: const OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)
-                ),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               hintText: 'Search For A Hotel',
-              hintStyle: const TextStyle(
-                  color: Colors.grey
-              ),
+              hintStyle: const TextStyle(color: Colors.grey),
             ),
           ),
           flex: 10,
         ),
-
         const SizedBox(width: 10),
-
         Expanded(
           flex: 2,
           child: InkWell(
-            onTap: () => {print('vbh')},
+            onTap: () => {print('clicked')},
             child: Container(
               height: 55,
               decoration: BoxDecoration(
@@ -51,7 +46,8 @@ class SearchBox extends StatelessWidget {
                 color: const Color.fromRGBO(53, 133, 255, 1.0),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromRGBO(53, 133, 255, 1.0).withOpacity(0.4),
+                    color: const Color.fromRGBO(53, 133, 255, 1.0)
+                        .withOpacity(0.4),
                     blurRadius: 10.0,
                     offset: const Offset(-2.0, 7),
                   ),

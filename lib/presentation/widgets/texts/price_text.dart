@@ -7,13 +7,13 @@ class PriceText extends StatelessWidget {
   final String price;
   final String per;
 
-  const PriceText({
-    Key? key,
-    required this.priceColor,
-    required this.textColor,
-    required this.price,
-    required this.per
-  }) : super(key: key);
+  const PriceText(
+      {Key? key,
+      required this.priceColor,
+      required this.textColor,
+      required this.price,
+      required this.per})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class PriceText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: "\$${price}",
+            text: "\$$price",
             style: GoogleFonts.poppins(
               fontSize: 11,
               color: priceColor,
@@ -29,7 +29,7 @@ class PriceText extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: "/per ${per}",
+            text: "/per $per",
             style: GoogleFonts.poppins(
               fontSize: 10,
               color: textColor,

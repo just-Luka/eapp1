@@ -9,7 +9,7 @@ void main() async {
   await bootstrapMethods();
 
   // SharedPreferenceFacade.clear();
-  runApp(Application());
+  runApp(const Application());
 }
 
 Future<void> dependencyInit() async {
@@ -18,5 +18,5 @@ Future<void> dependencyInit() async {
 }
 
 Future<void> bootstrapMethods() async {
-  // await SetAppPreference().setFirstSetup(true);
+  // pass, Here should be bootstrap methods
 }

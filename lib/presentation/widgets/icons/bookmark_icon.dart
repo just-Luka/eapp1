@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 class BookmarkIcon extends StatefulWidget {
   final HotelModel hotel;
 
-  BookmarkIcon({
+  const BookmarkIcon({
     Key? key,
     required this.hotel,
   }) : super(key: key);

@@ -6,5 +6,7 @@ class CustomIcons {
   static const _kFontFam = 'CustomIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData home_svgrepo_com = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // ignore: constant_identifier_names
+  static const IconData home_svgrepo_com =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

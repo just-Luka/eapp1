@@ -70,12 +70,12 @@ class CategorySlider extends StatelessWidget {
                                       textColor: Colors.white,
                                       text: state.model[index].name,
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     LocationIcon(
                                       color: Colors.white,
                                       text: state.model[index].location,
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     StarIcon(
                                       textColor: Colors.white,
                                       star: state.model[index].star,
@@ -88,7 +88,7 @@ class CategorySlider extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                          padding: EdgeInsets.only(left: 80, top: 218),
+                          padding: const EdgeInsets.only(left: 80, top: 218),
                           child: PriceOvalBanner(
                             price: state.model[index].price,
                             per: state.model[index].per,
@@ -100,7 +100,7 @@ class CategorySlider extends StatelessWidget {
               },
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       ),
