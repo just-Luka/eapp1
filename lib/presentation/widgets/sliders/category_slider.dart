@@ -38,11 +38,10 @@ class CategorySlider extends StatelessWidget {
                         height: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(18),
-                          color: Colors.indigo,
                           image: const DecorationImage(
-                              image: NetworkImage(
-                                  "https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
-                              fit: BoxFit.cover),
+                            image: NetworkImage("https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Padding(

@@ -7,30 +7,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class SavePage extends StatelessWidget {
-  static List<HotelModel> savedHotels = [
-    HotelModel.encapsulate(
-        id: "1",
-        location: "Tbilisi, Georgia",
-        name: "Name 1",
-        per: "Day",
-        star: "4.5",
-        price: "50.00"),
-    HotelModel.encapsulate(
-        id: "2",
-        location: "Tbilisi, Georgia",
-        name: "Name 2",
-        per: "Day",
-        star: "2.5",
-        price: "60.00"),
-    HotelModel.encapsulate(
-        id: "3",
-        location: "Tbilisi, Georgia",
-        name: "Name 3",
-        per: "Day",
-        star: "5.0",
-        price: "49.99"),
-  ];
-
   const SavePage({Key? key}) : super(key: key);
 
   @override

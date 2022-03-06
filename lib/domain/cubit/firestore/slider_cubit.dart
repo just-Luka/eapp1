@@ -33,7 +33,15 @@ class SliderCubit extends Cubit<SliderState> {
     for (SliderModel model in sliderModels) {
       final data = await hotel.docCollectionById(model.hotelId);
 
-      HotelModel hotelModel = HotelModel.encapsulate(id: data["id"], location: data["location"], name: data["name"], per: data["per"], star: data["star"], price: data["price"]);
+      HotelModel hotelModel = HotelModel.encapsulate(
+          id: data["id"],
+          location: data["location"],
+          name: data["name"],
+          per: data["per"],
+          star: data["star"],
+          price: data["price"],
+          categoryIds: data["category_ids"]
+      );
 
       hotelModels.add(hotelModel);
     }

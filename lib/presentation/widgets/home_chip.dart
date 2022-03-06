@@ -14,7 +14,8 @@ class HomeChip extends StatefulWidget {
 class _HomeChipState extends State<HomeChip> {
   int _activeChipIndex = 0;
 
-  void activeChip(index) {
+  void activeChip(index, chipId) {
+    print(chipId);
     setState(() {
       _activeChipIndex = index;
     });
@@ -60,7 +61,7 @@ class _HomeChipState extends State<HomeChip> {
                   return ListViewCenterFrame(
                     itemDistance: 13,
                     child: InputChip(
-                      onPressed: () => activeChip(index),
+                      onPressed: () => activeChip(index, state.model[index].id),
                       label: Padding(
                         padding: const EdgeInsets.all(7.0),
                         child: Text(state.model[index].name),
