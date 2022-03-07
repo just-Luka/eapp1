@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 
 class HotelProvider with ChangeNotifier {
   List<HotelModel> hotels = [];
+  List<HotelModel> unseenBadges = [];
 
   void saveHotel(HotelModel hotel) {
     if (!isHotelAlreadySaved(hotel)) {
       hotels.add(hotel);
+      unseenBadges.add(hotel);
+    } else {
+      unseenBadges.removeWhere((e) => e.id == hotel.id);
     }
 
     notifyListeners();

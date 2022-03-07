@@ -29,7 +29,8 @@ class SliderCubit extends Cubit<SliderState> {
         : emit(SliderError());
   }
 
-  Future<List<HotelModel>> fetchSliderHotels(List<SliderModel> sliderModels) async {
+  Future<List<HotelModel>> fetchSliderHotels(
+      List<SliderModel> sliderModels) async {
     BaseFirestore hotel = HotelFirestore();
     List<HotelModel> hotelModels = [];
 
@@ -49,9 +50,5 @@ class SliderCubit extends Cubit<SliderState> {
     }
 
     return hotelModels;
-  }
-
-  void filterByCategory() {
-    // pass
   }
 }

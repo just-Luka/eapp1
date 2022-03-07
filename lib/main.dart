@@ -22,3 +22,4 @@ Future<void> bootstrapMethods() async {
 }
 
 // TODO use pageStorageKey() to save state of listview (I think it is more efficient)
+// TODO we might have to rewrite structure of the code, how it is communicate with Firebase is very limited

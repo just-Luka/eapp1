@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:eapp1/custom_icons.dart';
 import 'package:eapp1/domain/providers/hotel_provider.dart';
 import 'package:eapp1/presentation/pages/home/home_page.dart';
@@ -43,21 +44,47 @@ class _WrapperPageState extends State<WrapperPage> {
           index: _currentIndex,
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(
-                  CustomIcons.home_svgrepo_com,
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(
+          items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(
+              icon: Icon(CustomIcons.home_svgrepo_com),
+              label: 'Home',
+            ),
+            const BottomNavigationBarItem(
               icon: Icon(Icons.location_on_outlined),
               label: 'Map',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_border_outlined),
+              icon: Consumer<HotelProvider>(
+                builder: (context, data, child) {
+                  return Badge(
+                    //TODO clicking problem
+                    child: InkWell(
+                      child: const Icon(Icons.bookmark_border_outlined),
+                      onTap: () {
+                        Provider.of<HotelProvider>(context, listen: false)
+                            .unseenBadges
+                            .clear();
+                      },
+                    ),
+                    badgeContent: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Text(
+                        data.unseenBadges.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                    badgeColor: const Color.fromRGBO(53, 133, 255, 1.0),
+                    animationType: BadgeAnimationType.fade,
+                    showBadge: data.unseenBadges.length > 0 ? true : false,
+                  );
+                },
+              ),
               label: 'Saves',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),
               label: 'Settings',
             ),
