@@ -17,6 +17,7 @@ class WrapperPage extends StatefulWidget {
 
 class _WrapperPageState extends State<WrapperPage> {
   int _currentIndex = 0;
+  bool _clear = false;
 
   static const List<Widget> _pages = <Widget>[
     HomePage(),
@@ -26,6 +27,8 @@ class _WrapperPageState extends State<WrapperPage> {
   ];
 
   void _onItemTapped(int index) {
+    _clear = index == 2;
+
     setState(() {
       _currentIndex = index;
     });
@@ -33,9 +36,6 @@ class _WrapperPageState extends State<WrapperPage> {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   body: AppRepository().getIsFirstBootstrap() ? WelcomePage() : const HomePage(),
-    // );
     return ChangeNotifierProvider(
       create: (_) => HotelProvider(),
       child: Scaffold(
@@ -56,16 +56,11 @@ class _WrapperPageState extends State<WrapperPage> {
             BottomNavigationBarItem(
               icon: Consumer<HotelProvider>(
                 builder: (context, data, child) {
+                  if (_clear) {
+                    data.unseenBadges.clear();
+                  }
                   return Badge(
-                    //TODO clicking problem
-                    child: InkWell(
-                      child: const Icon(Icons.bookmark_border_outlined),
-                      onTap: () {
-                        Provider.of<HotelProvider>(context, listen: false)
-                            .unseenBadges
-                            .clear();
-                      },
-                    ),
+                    child: const Icon(Icons.bookmark_border_outlined),
                     badgeContent: Padding(
                       padding: const EdgeInsets.all(1.0),
                       child: Text(
@@ -78,7 +73,7 @@ class _WrapperPageState extends State<WrapperPage> {
                     ),
                     badgeColor: const Color.fromRGBO(53, 133, 255, 1.0),
                     animationType: BadgeAnimationType.fade,
-                    showBadge: data.unseenBadges.length > 0 ? true : false,
+                    showBadge: data.unseenBadges.isNotEmpty,
                   );
                 },
               ),
