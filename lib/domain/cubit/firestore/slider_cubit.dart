@@ -15,20 +15,24 @@ class SliderCubit extends Cubit<SliderState> {
 
   SliderCubit() : super(SliderInitial());
 
-
   Future<void> fetchSlider(bool isReloaded) async {
     emit(SliderLoading());
 
-    List<SliderModel> data = await FirestoreRepository<SliderModel>(keyword: SPKeyword.slider).firestoreList(SliderRepository(), isReloaded);
+    List<SliderModel> data =
+        await FirestoreRepository<SliderModel>(keyword: SPKeyword.slider)
+            .firestoreList(SliderRepository(), isReloaded);
 
     List<HotelModel> hotelData = await fetchSliderHotels(data);
 
-    data.isNotEmpty ? emit(SliderLoaded(model: hotelData)) : emit(SliderError());
+    data.isNotEmpty
+        ? emit(SliderLoaded(model: hotelData))
+        : emit(SliderError());
   }
 
-  Future<List<HotelModel>> fetchSliderHotels(List<SliderModel> sliderModels) async {
-     BaseFirestore hotel = HotelFirestore();
-     List<HotelModel> hotelModels = [];
+  Future<List<HotelModel>> fetchSliderHotels(
+      List<SliderModel> sliderModels) async {
+    BaseFirestore hotel = HotelFirestore();
+    List<HotelModel> hotelModels = [];
 
     for (SliderModel model in sliderModels) {
       final data = await hotel.docCollectionById(model.hotelId);
@@ -40,8 +44,7 @@ class SliderCubit extends Cubit<SliderState> {
           per: data["per"],
           star: data["star"],
           price: data["price"],
-          categoryIds: data["category_ids"]
-      );
+          categoryIds: data["category_ids"]);
 
       hotelModels.add(hotelModel);
     }
