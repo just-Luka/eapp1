@@ -1,19 +1,14 @@
-import 'package:eapp1/data/models/firestore/i_model_json_convert.dart';
+class SliderModel {
+  final String id;
+  final String hotelId;
+  final int sort;
 
-class SliderModel implements IModelJsonConvert {
-  late String id;
-  late String hotelId;
-  late int sort;
-
-  SliderModel();
-
-  SliderModel.encapsulate({
+  const SliderModel({
     required this.id,
     required this.hotelId,
     required this.sort,
   });
 
-  @override
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -22,13 +17,11 @@ class SliderModel implements IModelJsonConvert {
     };
   }
 
-  @override
-  SliderModel fromMap(Map<String, dynamic> map) {
-    return SliderModel.encapsulate(
+  factory SliderModel.fromMap(Map<String, dynamic> map) {
+    return SliderModel(
       id: map['id'] as String,
       hotelId: map['hotelId'] as String,
       sort: map['sort'] as int,
     );
   }
-
 }

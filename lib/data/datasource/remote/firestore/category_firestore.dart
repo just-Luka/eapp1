@@ -1,7 +1,11 @@
 import 'package:eapp1/data/datasource/remote/firestore/base_firestore.dart';
 
 class CategoryFirestore extends BaseFirestore {
-  CategoryFirestore() : super(
-    reference: 'categories'
-  );
+  const CategoryFirestore() : super('categories');
+
+  Future getCollection() async {
+    var data = await collection().get();
+
+    return data.docs;
+  }
 }

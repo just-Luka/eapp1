@@ -1,17 +1,13 @@
-import 'package:eapp1/data/models/firestore/i_model_json_convert.dart';
+class HotelModel {
+  final String id;
+  final String location;
+  final String name;
+  final String per;
+  final String star;
+  final String price;
+  final List categoryIds;
 
-class HotelModel implements IModelJsonConvert {
-  late String id;
-  late String location;
-  late String name;
-  late String per;
-  late String star;
-  late String price;
-  late List categoryIds;
-
-  HotelModel();
-
-  HotelModel.encapsulate({
+  const HotelModel({
     required this.id,
     required this.location,
     required this.name,
@@ -21,7 +17,6 @@ class HotelModel implements IModelJsonConvert {
     required this.categoryIds,
   });
 
-  @override
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -34,9 +29,8 @@ class HotelModel implements IModelJsonConvert {
     };
   }
 
-  @override
-  HotelModel fromMap(Map<String, dynamic> map) {
-    return HotelModel.encapsulate(
+  factory HotelModel.fromMap(Map<String, dynamic> map) {
+    return HotelModel(
       id: map['id'] as String,
       location: map['location'] as String,
       name: map['name'] as String,

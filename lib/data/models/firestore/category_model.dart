@@ -1,19 +1,14 @@
-import 'package:eapp1/data/models/firestore/i_model_json_convert.dart';
+class CategoryModel {
+  final String id;
+  final String name;
+  final int sort;
 
-class CategoryModel implements IModelJsonConvert{
-  late String id;
-  late String name;
-  late int sort;
-
-  CategoryModel();
-
-  CategoryModel.encapsulate({
+  const CategoryModel({
     required this.id,
     required this.name,
-    required this.sort
+    required this.sort,
   });
 
-  @override
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -22,9 +17,8 @@ class CategoryModel implements IModelJsonConvert{
     };
   }
 
-  @override
-  CategoryModel fromMap(Map<String, dynamic> map) {
-    return CategoryModel.encapsulate(
+  factory CategoryModel.fromMap(Map<String, dynamic> map) {
+    return CategoryModel(
       id: map['id'] as String,
       name: map['name'] as String,
       sort: map['sort'] as int,
