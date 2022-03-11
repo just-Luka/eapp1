@@ -57,7 +57,7 @@ class HotelRepository with BasicKit {
       }
 
       if (!reChecked) {
-        return getData(isReloaded, reChecked: true);
+        return getData(true, reChecked: true);
       }
 
       return [];

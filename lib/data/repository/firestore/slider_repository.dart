@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:eapp1/config/widget_config.dart';
 import 'package:eapp1/data/datasource/local/preferences/get_firestore_preference.dart';
 import 'package:eapp1/data/datasource/remote/firestore/slider_firestore.dart';
 import 'package:eapp1/data/models/firestore/slider_model.dart';
@@ -9,9 +10,10 @@ import 'package:eapp1/domain/preferences/set_firestore_preference.dart';
 class SliderRepository with BasicKit {
   List<SliderModel> data = [];
   final SliderFirestore _firestore = const SliderFirestore();
+  final sliderRange = WidgetConfig.sliderRange;
 
   Future<List<SliderModel>> cloud() async {
-    var cloudData = await _firestore.getCollection();
+    var cloudData = await _firestore.getCollection(sliderRange);
 
     cloudData.forEach((e) {
       SliderModel model = SliderModel(
@@ -55,7 +57,7 @@ class SliderRepository with BasicKit {
       }
 
       if (!reChecked) {
-        return getData(isReloaded, reChecked: true);
+        return getData(true, reChecked: true);
       }
 
       return [];
