@@ -10,9 +10,7 @@ class CategoryLoading extends CategoryState {}
 class CategoryLoaded extends CategoryState {
   final List<CategoryModel> model;
 
-  CategoryLoaded({
-    required this.model
-  });
+  CategoryLoaded({required this.model});
 }
 
 class CategoryError extends CategoryState {}
