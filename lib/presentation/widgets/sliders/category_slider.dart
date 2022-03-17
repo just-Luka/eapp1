@@ -1,13 +1,8 @@
-import 'dart:ui';
-
 import 'package:eapp1/domain/cubit/firestore/slider_cubit.dart';
 import 'package:eapp1/presentation/widgets/frames/listview_center_frame.dart';
-import 'package:eapp1/presentation/widgets/icons/bookmark_icon.dart';
-import 'package:eapp1/presentation/widgets/icons/location_icon.dart';
-import 'package:eapp1/presentation/widgets/icons/star_icon.dart';
-import 'package:eapp1/presentation/widgets/price_oval_banner.dart';
-import 'package:eapp1/presentation/widgets/texts/hotel_title_text.dart';
-import 'package:flutter/material.dart';
+import 'package:eapp1/presentation/widgets/hotel_big_card.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategorySlider extends StatefulWidget {
@@ -19,13 +14,27 @@ class CategorySlider extends StatefulWidget {
 
 class _CategorySliderState extends State<CategorySlider> {
   final ScrollController _controller = ScrollController();
+  int distance = 70; // offset
+  bool isActive = false;
+  double progress = 0.0;
 
   @override
   void initState() {
     super.initState();
     _controller.addListener(() {
-      if (_controller.position.maxScrollExtent == _controller.position.pixels) {
-        BlocProvider.of<SliderCubit>(context).sliderLazyLoad();
+      double outRangeLoading = distance + _controller.position.maxScrollExtent;
+      double currentPixel = _controller.position.pixels;
+
+      if (_controller.position.maxScrollExtent <= currentPixel) {
+        if (currentPixel >= outRangeLoading) {
+          isActive = true;
+          BlocProvider.of<SliderCubit>(context).sliderLazyLoad().then((value) {
+            progress = 0.0;
+            isActive = false;
+          });
+        }
+
+        calculateProgress(outRangeLoading, currentPixel);
       }
     });
   }
@@ -36,6 +45,18 @@ class _CategorySliderState extends State<CategorySlider> {
     super.dispose();
   }
 
+  // Some math
+  void calculateProgress(outRangeLoading, currentPixel) {
+    double current, currentAsPrecent;
+
+    current = outRangeLoading - currentPixel;
+    currentAsPrecent = (100 * current) / distance;
+
+    setState(() {
+      progress = (100 - currentAsPrecent) * 0.01;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -43,84 +64,40 @@ class _CategorySliderState extends State<CategorySlider> {
       child: BlocBuilder<SliderCubit, SliderState>(
         builder: (context, state) {
           if (state is SliderLoading) {
-            return Center();
+            return const CupertinoActivityIndicator();
           } else if (state is SliderLoaded) {
-            return ListView.builder(
-              controller: state.completely ? null : _controller,
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: state.model.length,
-              itemBuilder: (context, index) {
-                return ListViewCenterFrame(
-                  itemDistance: 25,
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 250,
-                        height: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(18),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                                "https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
-                            fit: BoxFit.cover,
-                          ),
+            return Stack(
+              children: [
+                Positioned(
+                  right: 15,
+                  top: 123,
+                  child: isActive
+                      ? const CupertinoActivityIndicator()
+                      : CupertinoActivityIndicator.partiallyRevealed(
+                          progress: progress,
                         ),
+                ),
+                ListView.builder(
+                  itemCount: state.model.length + 1,
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  controller: state.completely ? null : _controller,
+                  itemBuilder: (context, index) {
+                    if (index == state.model.length) {
+                      return isActive
+                          ? const SizedBox(width: 50)
+                          : const SizedBox();
+                    }
+                    return ListViewCenterFrame(
+                      itemDistance: 25,
+                      child: HotelBigCard(
+                        hotelModel: state.model[index],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 190, top: 10),
-                        child: BookmarkIcon(hotel: state.model[index]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25, top: 150),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: BackdropFilter(
-                            filter:
-                                ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                            child: Container(
-                              width: 200.0,
-                              height: 88.0,
-                              color: Colors.black.withOpacity(0.1),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, top: 8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    HotelTitleText(
-                                      textColor: Colors.white,
-                                      text: state.model[index].name,
-                                    ),
-                                    const SizedBox(height: 5),
-                                    LocationIcon(
-                                      color: Colors.white,
-                                      text: state.model[index].location,
-                                    ),
-                                    const SizedBox(height: 5),
-                                    StarIcon(
-                                      textColor: Colors.white,
-                                      star: state.model[index].star,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 80, top: 218),
-                        child: PriceOvalBanner(
-                          price: state.model[index].price,
-                          per: state.model[index].per,
-                        ),
-                      ),
-                    ],
-                  ),
-                  index: index,
-                );
-              },
+                      index: index,
+                    );
+                  },
+                ),
+              ],
             );
           } else {
             return const SizedBox();

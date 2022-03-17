@@ -1,4 +1,3 @@
-import 'package:eapp1/data/models/firestore/hotel_model.dart';
 import 'package:eapp1/domain/providers/hotel_provider.dart';
 import 'package:eapp1/presentation/widgets/appbars/default_appbar.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';

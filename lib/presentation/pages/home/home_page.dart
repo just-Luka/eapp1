@@ -3,7 +3,7 @@ import 'package:eapp1/domain/cubit/firestore/slider_cubit.dart';
 import 'package:eapp1/presentation/widgets/appbars/default_appbar.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/home_chip.dart';
-import 'package:eapp1/presentation/widgets/refreshes/andorid_refresh.dart';
+import 'package:eapp1/presentation/widgets/reloads/andorid_refresh.dart';
 import 'package:eapp1/presentation/widgets/search_box.dart';
 import 'package:eapp1/presentation/widgets/sliders/category_slider.dart';
 import 'package:eapp1/presentation/widgets/sliders/hotel_double_slider.dart';
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SliverToBoxAdapter(
-                child: HomeChip(),
+              child: HomeChip(),
             ),
             const SliverToBoxAdapter(
               child: CategorySlider(),

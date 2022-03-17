@@ -36,6 +36,8 @@ class SliderCubit extends Cubit<SliderState> {
 
   // TODO : check on Network connection
   Future<void> sliderLazyLoad() async {
+    await Future.delayed(const Duration(seconds: 2));
+
     final int amount = hotelModels.length;
 
     sliderRange['end'] = sliderRange['end']! + 3;

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class LocationPage extends StatelessWidget {
   const LocationPage({Key? key}) : super(key: key);
