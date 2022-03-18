@@ -1,15 +1,9 @@
-import 'package:eapp1/domain/cubit/firestore/category_cubit.dart';
-import 'package:eapp1/domain/cubit/firestore/slider_cubit.dart';
+import 'package:eapp1/domain/page_reload.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AndroidRefresh extends StatelessWidget {
   final Widget child;
-
-  Future<void> categoryTrigger(context) async {
-    await BlocProvider.of<CategoryCubit>(context).fetchCategory(true);
-    await BlocProvider.of<SliderCubit>(context).fetchSlider(true);
-  }
+  static const PageReload _reload = PageReload();
 
   const AndroidRefresh({
     Key? key,
@@ -20,7 +14,7 @@ class AndroidRefresh extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       child: child,
-      onRefresh: () => categoryTrigger(context),
+      onRefresh: () => _reload.homePage(context),
       edgeOffset: 100,
       displacement: 30,
     );

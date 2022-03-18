@@ -21,7 +21,7 @@ class Application extends StatelessWidget with BasicKit {
       title: 'Welcome to Tbilisi',
       theme: appTheme(isLightMode() ? LightTheme() : DarkTheme()),
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: const[
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
