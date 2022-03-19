@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HeadlineText extends StatelessWidget {
+class SettingHeadlineText extends StatelessWidget {
   final String textLeft;
-  final String textRight;
 
-  const HeadlineText({
+  const SettingHeadlineText({
     Key? key,
     required this.textLeft,
-    required this.textRight,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25),
+      padding: const EdgeInsets.only(top: 25, bottom: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             textLeft,
             style: GoogleFonts.poppins(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
-          ),
-          Text(
-            textRight,
-            style: GoogleFonts.poppins(
-              fontSize: 13,
-              decoration: TextDecoration.underline,
-            ),
-          ),
+          )
         ],
       ),
     );

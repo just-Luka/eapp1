@@ -9,5 +9,7 @@
   "homePageTitle2": "Favorite Hotel",
   "searchInputPlaceholder": "Search For A Hotel",
   "savePageTitle1": "Hotels",
-  "savePageTitle2": "Saved List"
+  "savePageTitle2": "Saved List",
+  "settingPageTitle1": "",
+  "settingPageTitle2": "Settings"
 }

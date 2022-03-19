@@ -37,7 +37,10 @@ class HomePageIos extends StatelessWidget {
         ),
         const SliverToBoxAdapter(
           child: HomeCenterFrame(
-            child: HeadlineText(),
+            child: HeadlineText(
+              textLeft: 'Near You',
+              textRight: 'View All',
+            ),
           ),
         ),
         const SliverToBoxAdapter(
