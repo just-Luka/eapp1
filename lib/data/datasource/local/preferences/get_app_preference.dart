@@ -7,9 +7,11 @@ class GetAppPreference {
   }
 
   bool? getIsFirstBootstrap() {
-    return SharedPreferenceFacade.getBool(SPKeyword.isFirstBootstrap.toString());
+    return SharedPreferenceFacade.getBool(
+        SPKeyword.isFirstBootstrap.toString());
   }
 
-
-
+  bool? getTheme() {
+    return SharedPreferenceFacade.getBool(SPKeyword.theme.toString());
+  }
 }

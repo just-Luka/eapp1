@@ -18,7 +18,7 @@ class SettingCard extends StatelessWidget {
       margin: margin,
       width: double.infinity,
       height: height,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: [

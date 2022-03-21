@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class DarkTheme implements ITheme {
   @override
-  Color appbarColor = const Color.fromRGBO(66, 66, 66, 0.8);
+  Color appbarColor = const Color.fromARGB(204, 46, 44, 44);
 
   @override
-  Color bottomNavSelectedItemColor = Colors.blue[500]!;
+  Color bottomNavSelectedItemColor = const Color.fromARGB(255, 243, 33, 33);
 
   @override
-  Color bottomNavUnselectedItemColor = Colors.grey;
+  Color bottomNavUnselectedItemColor = const Color.fromARGB(204, 46, 44, 44);
 
   @override
-  Color scaffoldBackgroundColor = const Color.fromRGBO(245, 245, 245, 1.0);
+  Color scaffoldBackgroundColor = const Color.fromARGB(204, 46, 44, 44);
 }

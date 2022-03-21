@@ -1,7 +1,5 @@
-import 'package:eapp1/domain/auth/user_auth.dart';
 import 'package:eapp1/internal/application.dart';
 import 'package:eapp1/internal/facades/shared_preference_facade.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +9,7 @@ void main() async {
   await bootstrapMethods();
 
   // SharedPreferenceFacade.clear();
-  runApp(const Application());
+  runApp(Application());
 }
 
 Future<void> dependencyInit() async {
