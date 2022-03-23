@@ -4,7 +4,7 @@ import 'package:eapp1/domain/providers/hotel_provider.dart';
 import 'package:eapp1/presentation/pages/home/home_page.dart';
 import 'package:eapp1/presentation/pages/location_page.dart';
 import 'package:eapp1/presentation/pages/save_page.dart';
-import 'package:eapp1/presentation/pages/setting_page.dart';
+import 'package:eapp1/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

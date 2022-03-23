@@ -1,5 +1,5 @@
 import 'package:eapp1/domain/providers/app_provider.dart';
-import 'package:eapp1/internal/application.dart';
+import 'package:eapp1/presentation/pages/setting/language_page.dart';
 import 'package:eapp1/presentation/widgets/buttons/setting_button.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/setting_card.dart';
@@ -75,7 +75,7 @@ class SettingPage extends StatelessWidget {
                     ),
                     const Divider(color: Colors.black),
                     const AccountText(
-                        textLeft: 'Name', textRight: 'Luka Tsiklauri')
+                        textLeft: 'Name', textRight: 'Luka Tsiklauri'),
                   ],
                 ),
                 height: 450,
@@ -116,12 +116,38 @@ class SettingPage extends StatelessWidget {
                         size: 45,
                         color: Colors.grey,
                       ),
-                      onPressed: () => {print('change language')},
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LanguagePage(),
+                          ),
+                        ),
+                      },
                     ),
                   ],
                 ),
               )),
         ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            child: Center(
+              child: GestureDetector(
+                onTap: () => {
+                  print('clicked'),
+                },
+                child: Text(
+                  'Sing out',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: const Color.fromARGB(255, 223, 35, 35),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

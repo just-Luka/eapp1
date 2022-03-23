@@ -46,18 +46,6 @@ class HomePageIos extends StatelessWidget {
         const SliverToBoxAdapter(
           child: HotelDoubleSlider(),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return Container(
-                width: double.infinity,
-                height: 100,
-                color: const Color.fromRGBO(245, 245, 245, 1.0),
-              );
-            },
-            childCount: 20,
-          ),
-        ),
       ],
     );
   }

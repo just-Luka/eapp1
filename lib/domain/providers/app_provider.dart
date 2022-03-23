@@ -10,4 +10,12 @@ class AppProvider extends ChangeNotifier {
     SetAppPreference().setTheme(lightTheme);
     notifyListeners();
   }
+
+  void updateLanguage(lang) {
+    String prevLang = AppRepository().getLocale();
+    if (prevLang != lang) {
+      SetAppPreference().setLocale(lang);
+      notifyListeners();
+    }
+  }
 }
