@@ -1,6 +1,7 @@
 import 'package:eapp1/config/app_config.dart';
 import 'package:eapp1/data/repository/app_repository.dart';
 import 'package:eapp1/domain/providers/app_provider.dart';
+import 'package:eapp1/presentation/widgets/buttons/btn1_button.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/texts/setting_headline_text.dart';
 import 'package:flutter/material.dart';
@@ -56,23 +57,9 @@ class _LanguagePageState extends State<LanguagePage> {
             SizedBox(
               width: 120,
               height: 50,
-              child: ElevatedButton(
-                onPressed: _updateLanguage,
-                child: Text(
-                  AppLocalizations.of(context)!.accept,
-                  style: GoogleFonts.poppins(
-                    fontSize: 17,
-                  ),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      const Color.fromARGB(255, 8, 124, 201)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(7.0),
-                    ),
-                  ),
-                ),
+              child: Btn1Button(
+                text: AppLocalizations.of(context)!.accept,
+                callback: _updateLanguage,
               ),
             ),
           ],
