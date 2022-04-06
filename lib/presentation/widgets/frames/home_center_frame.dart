@@ -5,7 +5,7 @@ class HomeCenterFrame extends StatelessWidget {
 
   const HomeCenterFrame({
     Key? key,
-    required this.child
+    required this.child,
   }) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class HomeCenterFrame extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.only(left: width*0.06, right: width*0.04),
+      padding: EdgeInsets.only(left: width * 0.06, right: width * 0.04),
       child: child,
     );
   }

@@ -1,3 +1,4 @@
+import 'package:eapp1/data/models/firestore/hotel_model.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/cards/hotel_card.dart';
 import 'package:flutter/material.dart';
@@ -16,18 +17,58 @@ class HotelDoubleSlider extends StatelessWidget {
             HomeCenterFrame(
               child: Column(
                 children: const [
-                  HotelCard(),
+                  HotelCard(
+                    hotelModel: HotelModel(
+                      id: 'SomeKindaId',
+                      location: 'Tbilisi, Georgia',
+                      name: 'Royal One',
+                      per: 'Month',
+                      star: '5.0',
+                      price: '20',
+                      categoryIds: [],
+                    ),
+                  ),
                   SizedBox(height: 12),
-                  HotelCard(),
+                  HotelCard(
+                    hotelModel: HotelModel(
+                      id: 'SomeKindaId',
+                      location: 'Tbilisi, Georgia',
+                      name: 'Royal One',
+                      per: 'Month',
+                      star: '5.0',
+                      price: '20',
+                      categoryIds: [],
+                    ),
+                  ),
                 ],
               ),
             ),
             HomeCenterFrame(
               child: Column(
                 children: const [
-                  HotelCard(),
+                  HotelCard(
+                    hotelModel: HotelModel(
+                      id: 'SomeKindaId',
+                      location: 'Tbilisi, Georgia',
+                      name: 'Royal One',
+                      per: 'Month',
+                      star: '5.0',
+                      price: '20',
+                      categoryIds: [],
+                    ),
+                  ),
                   SizedBox(height: 12),
-                  HotelCard(),
+                  HotelCard(
+                    hotelModel: HotelModel(
+                      id: 'SomeKindaId',
+                      location: 'Tbilisi, Georgia',
+                      name: 'Royal One',
+                      per: 'Month',
+                      star: '5.0',
+                      price: '20',
+                      categoryIds: [],
+                    ),
+                  ),
                 ],
               ),
             ),

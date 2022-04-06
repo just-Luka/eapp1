@@ -29,7 +29,7 @@ class SettingPage extends StatelessWidget {
           ),
         ),
         const SliverToBoxAdapter(
-          child: UserInCard(),
+          child: UserOutCard(),
         ),
         const SliverToBoxAdapter(
           child: HomeCenterFrame(

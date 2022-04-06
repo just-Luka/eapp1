@@ -1,3 +1,4 @@
+import 'package:eapp1/data/models/firestore/hotel_model.dart';
 import 'package:eapp1/presentation/widgets/clippers/distance_clipper.dart';
 import 'package:eapp1/presentation/widgets/icons/location_icon.dart';
 import 'package:eapp1/presentation/widgets/icons/star_icon.dart';
@@ -6,7 +7,12 @@ import 'package:eapp1/presentation/widgets/texts/price_text.dart';
 import 'package:flutter/material.dart';
 
 class HotelCard extends StatelessWidget {
-  const HotelCard({Key? key}) : super(key: key);
+  final HotelModel hotelModel;
+
+  const HotelCard({
+    Key? key,
+    required this.hotelModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,8 @@ class HotelCard extends StatelessWidget {
               flex: 5,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(13.0),
-                child: Image.network('https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true',
+                child: Image.network(
+                  'https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,
@@ -44,27 +51,27 @@ class HotelCard extends StatelessWidget {
               flex: 10,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   HotelTitleText(
-                    text: "Rooms Hotel",
+                    text: hotelModel.name,
                     textColor: Colors.black,
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   LocationIcon(
-                    text: "Tbilisi, Georgia",
+                    text: hotelModel.location,
                     color: Colors.black,
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   StarIcon(
-                    star: "5.0",
+                    star: hotelModel.star,
                     textColor: Colors.black,
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   PriceText(
                     priceColor: Colors.orange,
                     textColor: Colors.black,
-                    per: "month",
-                    price: "100.00",
+                    per: hotelModel.per,
+                    price: hotelModel.price,
                   )
                 ],
               ),
