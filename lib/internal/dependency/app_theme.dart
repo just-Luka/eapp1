@@ -1,6 +1,11 @@
 import 'package:eapp1/presentation/styles/themes/i_theme.dart';
 import 'package:flutter/material.dart';
 
+// TODO ThemeData add colours
+extension on ThemeData {
+  Color get primaryColor1 => Colors.red;
+}
+
 class AppTheme {
   ThemeData call(ITheme iTheme) {
     return ThemeData(

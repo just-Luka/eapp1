@@ -31,8 +31,9 @@ class UserInCard extends StatelessWidget {
                 ),
                 child: const CircleAvatar(
                   radius: 55,
-                  backgroundImage: NetworkImage(
-                      'https://media-exp1.licdn.com/dms/image/C4E03AQFrjiRDiDZ3lw/profile-displayphoto-shrink_200_200/0/1640194175939?e=1649894400&v=beta&t=nz7xgYHbwD2HXLkRBjAKYGgxh4Zwo3oetJSD7BxY6Bc'),
+                  backgroundImage: AssetImage(
+                    'assets/images/profile.png',
+                  ),
                 ),
               ),
             ),
@@ -57,8 +58,8 @@ class UserInCard extends StatelessWidget {
             ),
             const Divider(color: Colors.black),
             const AccountText(
-              textLeft: 'Name',
-              textRight: 'Luka Tsiklauri',
+              textLeft: 'Phone',
+              textRight: '+49 17675107001',
             ),
           ],
         ),

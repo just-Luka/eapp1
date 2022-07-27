@@ -1,5 +1,6 @@
 import 'package:eapp1/internal/application.dart';
 import 'package:eapp1/internal/facades/shared_preference_facade.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,7 @@ Future<void> dependencyInit() async {
 }
 
 Future<void> bootstrapMethods() async {
-  // FirebaseAuth.instance.signOut();
-  // UserAuth().run();
+  FirebaseAuth.instance.signOut();
 }
 
 // TODO use pageStorageKey() to save state of listview (I think it is more efficient)

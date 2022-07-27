@@ -6,6 +6,7 @@ import 'package:eapp1/presentation/widgets/cards/setting/user_out_card.dart';
 import 'package:eapp1/presentation/widgets/frames/home_center_frame.dart';
 import 'package:eapp1/presentation/widgets/frames/setting_center_frame.dart';
 import 'package:eapp1/presentation/widgets/texts/setting_headline_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,8 +29,16 @@ class SettingPage extends StatelessWidget {
             ),
           ),
         ),
-        const SliverToBoxAdapter(
-          child: UserOutCard(),
+        SliverToBoxAdapter(
+          child: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+              if (snapshot.data == null) {
+                return const UserOutCard();
+              }
+              return const UserInCard();
+            },
+          ),
         ),
         const SliverToBoxAdapter(
           child: HomeCenterFrame(
