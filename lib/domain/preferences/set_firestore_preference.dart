@@ -35,4 +35,14 @@ class SetFirestorePreference {
 
     await SharedPreferenceFacade.setStringList('slider', modelJson);
   }
+
+  // Future<void> setBookmark(List<BookmarkModel> model) async {
+  //   final List<String> modelJson = [];
+
+  //   for (var e in model) {
+  //     // modelJson.add(jsonEncode(e.toMap()));
+  //   }
+
+  //   await SharedPreferenceFacade.setStringList('bookmark', modelJson);
+  // }
 }

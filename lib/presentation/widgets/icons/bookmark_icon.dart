@@ -1,7 +1,7 @@
 import 'package:eapp1/data/models/firestore/hotel_model.dart';
-import 'package:eapp1/domain/providers/hotel_provider.dart';
+import 'package:eapp1/domain/cubit/firestore/hotel_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookmarkIcon extends StatefulWidget {
   final HotelModel hotel;
@@ -22,8 +22,8 @@ class _BookmarkIconState extends State<BookmarkIcon> {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: () {
-        Provider.of<HotelProvider>(context, listen: false)
-            .saveHotel(widget.hotel);
+        BlocProvider.of<HotelCubit>(context).addBookmark(widget.hotel);
+
         setState(() {
           ismarked = !ismarked;
         });

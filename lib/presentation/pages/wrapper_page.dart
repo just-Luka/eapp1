@@ -1,12 +1,12 @@
 import 'package:badges/badges.dart';
 import 'package:eapp1/custom_icons.dart';
-import 'package:eapp1/domain/providers/hotel_provider.dart';
+import 'package:eapp1/domain/cubit/firestore/hotel_cubit.dart';
 import 'package:eapp1/presentation/pages/home/home_page.dart';
 import 'package:eapp1/presentation/pages/location_page.dart';
 import 'package:eapp1/presentation/pages/save_page.dart';
 import 'package:eapp1/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WrapperPage extends StatefulWidget {
   const WrapperPage({Key? key}) : super(key: key);
@@ -17,7 +17,6 @@ class WrapperPage extends StatefulWidget {
 
 class _WrapperPageState extends State<WrapperPage> {
   int _currentIndex = 0;
-  bool _clear = false;
 
   static const List<Widget> _pages = <Widget>[
     HomePage(),
@@ -27,8 +26,6 @@ class _WrapperPageState extends State<WrapperPage> {
   ];
 
   void _onItemTapped(int index) {
-    _clear = index == 2;
-
     setState(() {
       _currentIndex = index;
     });
@@ -36,8 +33,8 @@ class _WrapperPageState extends State<WrapperPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => HotelProvider(),
+    return BlocProvider(
+      create: (_) => HotelCubit(),
       child: Scaffold(
         body: IndexedStack(
           children: _pages,
@@ -54,27 +51,33 @@ class _WrapperPageState extends State<WrapperPage> {
               label: 'Map',
             ),
             BottomNavigationBarItem(
-              icon: Consumer<HotelProvider>(
-                builder: (context, data, child) {
-                  if (_clear) {
-                    data.unseenBadges.clear();
-                  }
-                  return Badge(
-                    child: const Icon(Icons.bookmark_border_outlined),
-                    badgeContent: Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Text(
-                        data.unseenBadges.length.toString(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
+              icon: BlocConsumer<HotelCubit, HotelState>(
+                builder: (context, state) {
+                  if (state is HotelBookmarkAdded) {
+                    if (_currentIndex == 2) {
+                      state.newBadges.clear();
+                    }
+                    return Badge(
+                      child: const Icon(Icons.bookmark_border_outlined),
+                      badgeContent: Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Text(
+                          state.newBadges.length.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                          ),
                         ),
                       ),
-                    ),
-                    badgeColor: const Color.fromRGBO(53, 133, 255, 1.0),
-                    animationType: BadgeAnimationType.fade,
-                    showBadge: data.unseenBadges.isNotEmpty,
-                  );
+                      badgeColor: const Color.fromRGBO(53, 133, 255, 1.0),
+                      animationType: BadgeAnimationType.fade,
+                      showBadge: state.newBadges.isNotEmpty,
+                    );
+                  }
+                  return const Icon(Icons.bookmark_border_outlined);
+                },
+                listener: (context, state) {
+                  // if (_currentIndex == 2) state.newbadges.clear()
                 },
               ),
               label: 'Saves',
