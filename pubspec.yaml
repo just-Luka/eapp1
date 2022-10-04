@@ -27,6 +27,8 @@ dependencies:
   firebase_auth: ^3.3.11
   flutter_form_builder: ^7.1.1
   form_validator: ^1.0.2
+  mockito: ^5.3.0
+  yandex_mapkit: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +43,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/hotels/
 
   fonts:
     - family: Poppins

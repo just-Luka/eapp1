@@ -10,8 +10,8 @@ class HotelCubit extends Cubit<HotelState> {
 
   HotelCubit() : super(HotelInitial());
 
-  /// adds particular hotel in bookmarks
-  void addBookmark(HotelModel hotel) {
+  /// adds/removes particular hotel in bookmarks
+  void bookmarkPushPop(HotelModel hotel) {
     if (!_isBookmarkAlreadyAdded(hotel)) {
       bookmarks.add(hotel);
       newBadges.add(hotel);
@@ -41,4 +41,6 @@ class HotelCubit extends Cubit<HotelState> {
 
     return true;
   }
+
+  void setBookmarkPreferences() {}
 }

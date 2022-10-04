@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferenceFacade {
   static late SharedPreferences _preferences;
 
-  static Future init() async{
+  static Future init() async {
     _preferences = await SharedPreferences.getInstance();
   }
 
@@ -11,7 +11,7 @@ class SharedPreferenceFacade {
     _preferences.clear();
   }
 
-  static Future<void> setString(key, String value) async{
+  static Future<void> setString(key, String value) async {
     await _preferences.setString(key, value);
   }
 
@@ -19,7 +19,7 @@ class SharedPreferenceFacade {
     return _preferences.getString(key);
   }
 
-  static Future<void> setBool(key, bool value) async{
+  static Future<void> setBool(key, bool value) async {
     await _preferences.setBool(key, value);
   }
 
@@ -27,7 +27,7 @@ class SharedPreferenceFacade {
     return _preferences.getBool(key);
   }
 
-  static Future<void> setStringList(key, List<String> value) async{
+  static Future<void> setStringList(key, List<String> value) async {
     await _preferences.setStringList(key, value);
   }
 

@@ -70,6 +70,7 @@ class SliderCubit extends Cubit<SliderState> {
         star: data["star"],
         price: data["price"],
         categoryIds: data["category_ids"],
+        image: data["image"],
       );
 
       hotelModels.add(hotelModel);

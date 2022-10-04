@@ -5,6 +5,7 @@ class HotelModel {
   final String per;
   final String star;
   final String price;
+  final String image;
   final List categoryIds;
 
   const HotelModel({
@@ -15,6 +16,7 @@ class HotelModel {
     required this.star,
     required this.price,
     required this.categoryIds,
+    required this.image,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +28,7 @@ class HotelModel {
       'star': star,
       'price': price,
       'categoryIds': categoryIds,
+      'image': image,
     };
   }
 
@@ -38,6 +41,7 @@ class HotelModel {
       star: map['star'] as String,
       price: map['price'] as String,
       categoryIds: map['categoryIds'] as List,
+      image: map['image'] as String,
     );
   }
 }

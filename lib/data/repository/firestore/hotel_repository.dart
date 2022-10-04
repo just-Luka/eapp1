@@ -22,6 +22,7 @@ class HotelRepository with BasicKit {
         star: e.get('star'),
         price: e.get('price'),
         categoryIds: e.get("category_ids"),
+        image: e.get('image'),
       );
       data.add(model);
     });

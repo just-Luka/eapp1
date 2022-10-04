@@ -22,7 +22,7 @@ class _BookmarkIconState extends State<BookmarkIcon> {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: () {
-        BlocProvider.of<HotelCubit>(context).addBookmark(widget.hotel);
+        BlocProvider.of<HotelCubit>(context).bookmarkPushPop(widget.hotel);
 
         setState(() {
           ismarked = !ismarked;

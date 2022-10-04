@@ -8,7 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dependencyInit();
   await bootstrapMethods();
-
   // SharedPreferenceFacade.clear();
   runApp(Application());
 }

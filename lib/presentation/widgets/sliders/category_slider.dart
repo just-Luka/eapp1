@@ -6,6 +6,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategorySlider extends StatefulWidget {
+  static const List<String> hotelImages = [
+    'assets/images/hotels/1.jpeg',
+    'assets/images/hotels/2.jpeg',
+    'assets/images/hotels/3.jpeg',
+    'assets/images/hotels/4.jpeg',
+    'assets/images/hotels/5.jpeg',
+    'assets/images/hotels/6.jpeg',
+    'assets/images/hotels/7.jpeg',
+  ];
   const CategorySlider({Key? key}) : super(key: key);
 
   @override

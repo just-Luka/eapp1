@@ -25,16 +25,17 @@ class HotelBigCard extends StatelessWidget {
           height: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
-            image: const DecorationImage(
-              image: NetworkImage(
-                  "https://www.planetware.com/wpimages/2020/01/best-underwater-hotels-muraka-conrad-maldives-rangali-island.jpg"),
+            image: DecorationImage(
+              image: AssetImage(hotelModel.image),
               fit: BoxFit.cover,
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 190, top: 10),
-          child: BookmarkIcon(hotel: hotelModel),
+          child: BookmarkIcon(
+            hotel: hotelModel,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 25, top: 150),

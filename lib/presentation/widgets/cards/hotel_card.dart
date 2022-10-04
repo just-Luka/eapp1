@@ -38,8 +38,8 @@ class HotelCard extends StatelessWidget {
               flex: 5,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(13.0),
-                child: Image.network(
-                  'https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true',
+                child: Image.asset(
+                  hotelModel.image,
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,
