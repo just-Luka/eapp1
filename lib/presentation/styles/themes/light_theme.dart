@@ -31,4 +31,13 @@ class LightTheme implements ITheme {
 
   @override
   Color cardIconColor = Colors.grey;
+
+  @override
+  Color chipBackgroundColor = const Color.fromRGBO(232, 232, 232, 1.0);
+
+  @override
+  Color chipSelectedColor = const Color.fromRGBO(0, 102, 255, 1.0);
+
+  @override
+  Color chipSecondarySelectedColor = const Color.fromRGBO(177, 208, 253, 1.0);
 }

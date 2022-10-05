@@ -31,4 +31,13 @@ class DarkTheme implements ITheme {
 
   @override
   Color cardIconColor = Colors.white;
+
+  @override
+  Color chipBackgroundColor = const Color.fromARGB(204, 58, 55, 55);
+
+  @override
+  Color chipSelectedColor = Colors.black;
+
+  @override
+  Color chipSecondarySelectedColor = Colors.white;
 }

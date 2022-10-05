@@ -5,6 +5,7 @@ import 'package:eapp1/presentation/widgets/icons/star_icon.dart';
 import 'package:eapp1/presentation/widgets/texts/hotel_title_text.dart';
 import 'package:eapp1/presentation/widgets/texts/price_text.dart';
 import 'package:flutter/material.dart';
+import 'package:eapp1/internal/dependency/app_theme.dart';
 
 class HotelCard extends StatelessWidget {
   final HotelModel hotelModel;
@@ -19,7 +20,7 @@ class HotelCard extends StatelessWidget {
     return Container(
       height: 120,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).hotelCardBackgroundColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(

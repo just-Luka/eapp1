@@ -11,4 +11,7 @@ abstract class ITheme {
   late Color primaryTitleMediumColor;
   late Color cardIconColor;
   late Color cardBackgroundColor;
+  late Color chipBackgroundColor;
+  late Color chipSelectedColor;
+  late Color chipSecondarySelectedColor;
 }

@@ -69,11 +69,14 @@ class _HomeChipState extends State<HomeChip> {
                         fontSize: 14,
                         color: _activeChipIndex == index
                             ? Theme.of(context).chipTheme.selectedColor
-                            : Colors.black,
+                            : Theme.of(context)
+                                .primaryTextTheme
+                                .titleLarge!
+                                .color,
                         fontWeight: FontWeight.w500),
                     backgroundColor: _activeChipIndex == index
-                        ? const Color.fromRGBO(177, 208, 253, 1.0)
-                        : const Color.fromRGBO(232, 232, 232, 1.0),
+                        ? Theme.of(context).chipTheme.secondarySelectedColor
+                        : Theme.of(context).chipTheme.backgroundColor,
                   ),
                   index: index,
                 );
