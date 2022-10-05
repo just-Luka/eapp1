@@ -23,6 +23,7 @@ class HeadlineText extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryTextTheme.titleLarge!.color,
             ),
           ),
           Text(
@@ -30,6 +31,7 @@ class HeadlineText extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 13,
               decoration: TextDecoration.underline,
+              color: Theme.of(context).primaryTextTheme.titleLarge!.color,
             ),
           ),
         ],

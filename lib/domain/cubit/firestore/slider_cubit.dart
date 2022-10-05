@@ -51,7 +51,6 @@ class SliderCubit extends Cubit<SliderState> {
     }
   }
 
-  // TODO : bound HotelRepository here
   Future<void> fetchSliderHotels() async {
     const HotelFirestore hotel = HotelFirestore();
 

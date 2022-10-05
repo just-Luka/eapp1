@@ -15,11 +15,11 @@ class UserOutCard extends StatelessWidget {
         alignment: WrapAlignment.spaceAround,
         children: [
           SettingButton(
-            color: Colors.white,
-            icon: const Icon(
+            color: Theme.of(context).cardColor,
+            icon: Icon(
               Icons.login,
               size: 45,
-              color: Colors.grey,
+              color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () {
               Navigator.push(
@@ -31,11 +31,11 @@ class UserOutCard extends StatelessWidget {
             },
           ),
           SettingButton(
-            color: Colors.white,
-            icon: const Icon(
+            color: Theme.of(context).cardColor,
+            icon: Icon(
               Icons.add_circle_outline_outlined,
               size: 45,
-              color: Colors.grey,
+              color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => {
               Navigator.push(

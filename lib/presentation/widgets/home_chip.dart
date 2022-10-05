@@ -68,7 +68,7 @@ class _HomeChipState extends State<HomeChip> {
                     labelStyle: GoogleFonts.poppins(
                         fontSize: 14,
                         color: _activeChipIndex == index
-                            ? const Color.fromRGBO(0, 102, 255, 1.0)
+                            ? Theme.of(context).chipTheme.selectedColor
                             : Colors.black,
                         fontWeight: FontWeight.w500),
                     backgroundColor: _activeChipIndex == index

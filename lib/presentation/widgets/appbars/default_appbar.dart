@@ -29,7 +29,8 @@ class DefaultAppbar extends StatelessWidget {
                   text: title,
                   style: GoogleFonts.poppins(
                     fontSize: 20,
-                    color: Colors.grey,
+                    color:
+                        Theme.of(context).primaryTextTheme.titleMedium!.color,
                   ),
                 ),
                 TextSpan(
@@ -73,13 +74,13 @@ class DefaultAppbar extends StatelessWidget {
         return GoogleFonts.poppins(
           fontSize: 19,
           fontWeight: FontWeight.bold,
-          color: Colors.black,
+          color: Theme.of(context).primaryTextTheme.titleLarge!.color,
         );
       default:
         return GoogleFonts.poppins(
           fontSize: 21,
           fontWeight: FontWeight.bold,
-          color: Colors.black,
+          color: Theme.of(context).primaryTextTheme.titleLarge!.color,
         );
     }
   }

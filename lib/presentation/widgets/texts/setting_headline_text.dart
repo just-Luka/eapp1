@@ -21,6 +21,7 @@ class SettingHeadlineText extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 20,
               fontWeight: FontWeight.w500,
+              color: Theme.of(context).primaryTextTheme.titleLarge!.color,
             ),
           )
         ],
