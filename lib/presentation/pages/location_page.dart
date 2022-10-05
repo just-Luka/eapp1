@@ -14,8 +14,8 @@ class LocationPage extends StatelessWidget {
             point: const Point(latitude: 55.7558, longitude: 37.6173),
             icon: PlacemarkIcon.single(
               PlacemarkIconStyle(
-                  image: BitmapDescriptor.fromAssetImage(
-                      'assets/images/map-mark-sign.png')),
+                image: BitmapDescriptor.fromAssetImage(""),
+              ),
             ),
           ),
         ],
